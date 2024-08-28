@@ -93,6 +93,9 @@ return {
 		{Text = "@NotKeira", 		Desc = "Open Source Contributor"};
 		{Text = "@Sqikerz", 		Desc = "Open Source Contributor"};
 		{Text = "@cl1ents", 		Desc = "Open Source Contributor"};
+		{Text = "@Hedreon", 		Desc = "Open Source Contributor"};
+		{Text = "@Mars7383", 		Desc = "Open Source Contributor"};
+		{Text = "@PurpleCreativity",Desc = "Open Source Contributor"};
 	};
 
 	Misc = {
@@ -112,8 +115,8 @@ return {
 		{Text = "Osyris",					Desc = "Wrote 't', an open-source typechecking library"};
 		{Text = "buildthomas",				Desc = "Wrote 'MockDataStoreService', an open-source mock DataStoreService replacement library"};
 		{Text = "Tiffany352",				Desc = "Wrote an improved base64 implementation"};
-		{Text = "",							Desc = ""};
-		{Text = "~ :) ~",					Desc = ""};
+		{Text = "",};
+		{Text = "~ :) ~",};
 		{Text = "Donors",					Desc = "Donors keep the wheels turning ;)"};
 		{Text = "The Users [You :)]",		Desc = "For using the script and keeping it alive :)"};
 		{Text = "Special thanks", 			Desc = "Special thanks to everyone who helped along the way and suggested new ideas!"};

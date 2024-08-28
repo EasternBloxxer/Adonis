@@ -75,6 +75,10 @@ return function(Vargs, GetEnv)
 			DonorCommands = true;
 			DonorCapes = true;
 			SplitKey = true;
+			Prefix = true;
+			PlayerPrefix = true;
+			SpecialPrefix = true;
+			ConsoleKeyCode = true;
 		};
 
 		--// Settings that are never sent to the client
@@ -970,13 +974,6 @@ return function(Vargs, GetEnv)
 			ProcessChat = function(p: Player, args: {[number]: any})
 				if type(args[1]) == "string" then
 					Process.Chat(p, args[1])
-				end
-			end;
-
-			ProcessCustomChat = function(p: Player, args: {[number]: any})
-				if type(args[1]) == "string" and type(args[2]) == "string" then
-					Process.Chat(p,args[1],"CustomChat")
-					Process.CustomChat(p, args[1], args[2], true)
 				end
 			end;
 

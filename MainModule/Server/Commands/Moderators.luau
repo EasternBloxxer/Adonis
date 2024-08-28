@@ -33,6 +33,7 @@ return function(Vargs, env)
 						else
 							v:Kick(args[2])
 						end
+						Functions.LogAdminAction(plr, "Kick", v.Name, args[2] or "No reason provided")
 						Functions.Hint(`Kicked {playerName}`, {plr})
 					end
 				end
@@ -366,6 +367,7 @@ return function(Vargs, env)
 							Message = reason;
 							Time = os.time();
 						})
+						Functions.LogAdminAction(plr, "Warned", v.Name, reason)
 						service.Events.WarningAdded:Fire(v, args[2], plr)
 
 						--// Check if its a fake player, this should allow it to save.
@@ -405,7 +407,7 @@ return function(Vargs, env)
 							Message = reason;
 							Time = os.time();
 						})
-
+						Functions.LogAdminAction(plr, "Kick Warning", v.Name, reason)
 						service.Events.WarningAdded:Fire(v, reason, plr)
 
 						if typeof(v) == "Instance" then
@@ -462,7 +464,7 @@ return function(Vargs, env)
 							end
 						end
 
-
+						Functions.LogAdminAction(plr, "Removed Warning", v.Name, `Reason: {reason}`)
 						--// Check if its a fake player, this should allow it to save.
 						if service.Wrapped(v) then
 							task.defer(Core.SavePlayerData, v, playerData)
@@ -490,7 +492,7 @@ return function(Vargs, env)
 					if service.Wrapped(v) then
 						task.defer(Core.SavePlayerData, v, playerData)
 					end
-
+					Functions.LogAdminAction(plr, "Clear Warnings", v.Name, "Warnings cleared")
 					Functions.Notification("Notification", `Cleared warning(s) for {service.FormatPlayer(v)}`, {plr}, 5, "MatIcons://Shield", Core.Bytecode(`client.Remote.Send('ProcessCommand','{Settings.Prefix}warnings {v.Name}')`))
 				end
 			end
@@ -1095,34 +1097,6 @@ return function(Vargs, env)
 						Message = service.Filter(args[2], plr, v);
 						replyTicket = replyTicket;
 					})
-				end
-			end
-		};
-
-		ShowChat = {
-			Prefix = Settings.Prefix;
-			Commands = {"chat", "customchat"};
-			Args = {"player"};
-			Description = "Opens the custom chat GUI";
-			AdminLevel = "Moderators";
-			Hidden = not Settings.CustomChat;
-			Function = function(plr: Player, args: {string})
-				for _, v in service.GetPlayers(plr, args[1]) do
-					Remote.MakeGui(v, "Chat")
-				end
-			end
-		};
-
-		RemoveChat = {
-			Prefix = Settings.Prefix;
-			Commands = {"unchat", "uncustomchat"};
-			Args = {"player"};
-			Description = "Closes the custom chat GUI";
-			AdminLevel = "Moderators";
-			Hidden = not Settings.CustomChat;
-			Function = function(plr: Player, args: {string})
-				for _, v in service.GetPlayers(plr, args[1]) do
-					Remote.RemoveGui(v, "Chat")
 				end
 			end
 		};
@@ -3782,6 +3756,13 @@ return function(Vargs, env)
 								end
 							elseif obj:IsA("Accoutrement") and obj:FindFirstChild("Handle") then
 								obj.Handle.Transparency = 1
+							elseif obj:IsA("Tool") then
+								for _, Descendant in obj:GetDescendants() do
+									if Descendant:IsA("BasePart") or Descendant:IsA("Decal") or Descendant:IsA("UnionOperation") then
+										Descendant:SetAttribute('ADONIS_OriginalTransparency',Descendant.Transparency)
+										Descendant.Transparency = 1
+									end
+								end
 							elseif obj:IsA("ForceField") then
 								obj.Visible = false
 							elseif obj:IsA("BillboardGui") then
@@ -3818,6 +3799,14 @@ return function(Vargs, env)
 								end
 							elseif obj:IsA("Accoutrement") and obj:FindFirstChild("Handle") then
 								obj.Handle.Transparency = 0
+							elseif obj:IsA("Tool") then
+								for _, Descendant in obj:GetDescendants() do
+									if Descendant:IsA("BasePart") or Descendant:IsA("Decal") or Descendant:IsA("UnionOperation") then
+										local Transparency = Descendant:GetAttribute('ADONIS_OriginalTransparency') or 0
+										Descendant.Transparency = Transparency
+										Descendant:SetAttribute('ADONIS_OriginalTransparency',nil)
+									end
+								end
 							elseif obj:IsA("ForceField") and obj.Name ~="ADONIS_FULLGOD" then
 								obj.Visible = true
 							elseif obj:IsA("BillboardGui") then

@@ -452,10 +452,14 @@ return function(Vargs, env)
 
 				local UserId = Functions.GetUserIdFromNameAsync(args[1])
 				if UserId then
-					local success, found, _, placeId, jobId = pcall(service.TeleportService.GetPlayerPlaceInstanceAsync, service.TeleportService, UserId)
+					local success, samePlace, errorMessage, placeId, jobId = pcall(service.TeleportService.GetPlayerPlaceInstanceAsync, service.TeleportService, UserId)
+					
 					if success then
-						assert(jobId ~= service.DataModel.JobId, "You're already in this server!")
-						if found and placeId and jobId then
+						if samePlace then
+							error("You're already in this server!")
+						end
+				
+						if placeId and jobId then
 							service.TeleportService:TeleportAsync(placeId, {plr}, service.New("TeleportOptions", {
 								ServerInstanceId = jobId
 							}))
@@ -464,7 +468,7 @@ return function(Vargs, env)
 							Functions.Hint(`{service.Players:GetNameFromUserIdAsync(UserId)} was not found playing this game`, {plr})
 						end
 					else
-						Functions.Hint(`Unexpected internal error: {found}`, {plr})
+						Functions.Hint(`Unexpected internal error: {errorMessage or samePlace}`, {plr})
 					end
 				else
 					Functions.Hint(`'{args[1]}' is not a valid Roblox user`, {plr})
@@ -1169,6 +1173,40 @@ return function(Vargs, env)
 				end)
 				service.MarketplaceService:PromptPurchase(plr, assetId, false)
 			end
+		};
+		Coordinates = {
+			Prefix = Settings.PlayerPrefix;
+			Commands = {"coordinates", "coords", "position"};
+			Args = {};
+			Description = "Shows your current position in the game world";
+			AdminLevel = "Players";
+			Function = function(plr: Player, args: {string})
+				local guiName = "CoordinatesDisplay"
+				Remote.RemoveGui(plr, guiName)
+				local updater
+
+				updater = plr.CharacterAdded:Connect(function(char)
+					local rootPart = char:WaitForChild("HumanoidRootPart")
+					while rootPart and plr.Parent do
+						if Remote.GetGui(plr, guiName) then
+							Remote.UpdateGui(plr, guiName, {
+								Message = string.format("X: %.2f, Y: %.2f, Z: %.2f", rootPart.Position.X, rootPart.Position.Y, rootPart.Position.Z)
+							})
+						else
+							updater:Disconnect()
+						end
+						task.wait(0.2)
+					end
+				end)
+
+				local initialPos = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and plr.Character.HumanoidRootPart.Position or Vector3.new()
+				Remote.MakeGui(plr, "Coords", {
+					Title = "Coordinates";
+					Message = string.format("X: %.2f, Y: %.2f, Z: %.2f", initialPos.X, initialPos.Y, initialPos.Z);
+					Time = math.huge;
+					Name = guiName;
+				})
+			end;
 		};
 	};
 end
