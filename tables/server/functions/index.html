@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#playerfinders" class="md-skip">
+        <a href="#addjoinfilter-name-string-function-function" class="md-skip">
           Skip to content
         </a>
       
@@ -620,6 +620,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#addjoinfilter-name-string-function-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddJoinFilter (Name (string), Function (function))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removejoinfilter-name-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveJoinFilter (Name (string))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#playerfinders" class="md-nav__link">
     <span class="md-ellipsis">
       PlayerFinders
@@ -740,6 +758,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#addjoinfilter-name-string-function-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddJoinFilter (Name (string), Function (function))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removejoinfilter-name-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveJoinFilter (Name (string))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#playerfinders" class="md-nav__link">
     <span class="md-ellipsis">
       PlayerFinders
@@ -770,7 +806,19 @@
 
 <p>Contains various server-specific miscellaneous functions.</p>
 <p><strong>ℹ️ This page is currently incomplete.</strong></p>
-<h3 id="playerfinders">PlayerFinders<a class="headerlink" href="#playerfinders" title="Permanent link">&para;</a></h3>
+<h2 id="addjoinfilter-name-string-function-function">AddJoinFilter (Name (string), Function (function))<a class="headerlink" href="#addjoinfilter-name-string-function-function" title="Permanent link">&para;</a></h2>
+<p>Adds the given function as a join filter. Will error if a joinfilter with this name already exists
+<div class="highlight"><pre><span></span><code>    <span class="n">Functions</span><span class="p">.</span><span class="n">AddJoinFilter</span><span class="p">(</span><span class="s2">&quot;No_bandits&quot;</span><span class="p">,</span><span class="kr">function</span><span class="p">(</span><span class="n">Player</span><span class="p">:</span><span class="n">Player</span><span class="p">,</span> <span class="n">PlayerData</span><span class="p">)</span>
+        <span class="kr">if</span> <span class="n">Player</span><span class="p">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;SimulprodBandit&quot;</span> <span class="kr">then</span>
+            <span class="kr">return</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;Simulprod Bandit&quot;</span> <span class="c1">-- second argument is the reason the player gets kicked</span>
+        <span class="kr">end</span><span class="p">;</span>
+
+        <span class="kr">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kr">end</span><span class="p">);</span>
+</code></pre></div></p>
+<h2 id="removejoinfilter-name-string">RemoveJoinFilter (Name (string))<a class="headerlink" href="#removejoinfilter-name-string" title="Permanent link">&para;</a></h2>
+<p>Removes the given joinfilter.</p>
+<h2 id="playerfinders">PlayerFinders<a class="headerlink" href="#playerfinders" title="Permanent link">&para;</a></h2>
 <p>These are used when <code>service.GetPlayers</code> is called to search for players based on the user's input.
 The default built-in player finders (at the time of writing this) can be found below to be used as examples:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PlayerFinders</span> <span class="o">=</span> <span class="p">{</span>
