@@ -1,0 +1,1468 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/tables/server/remote/">
+      
+      
+        <link rel="prev" href="../process/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Remote - Adonis Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#table-returnables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Adonis Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Remote
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com//Epix-Incorporated/Adonis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /Epix-Incorporated/Adonis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Adonis Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com//Epix-Incorporated/Adonis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /Epix-Incorporated/Adonis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../User-Manual-%26-Feature-Showcase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Manual & Feature Showcase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/creating-a-theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a theme
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tables
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shared
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Shared
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared/service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The "Service" Metatable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anti/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anti
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Remote
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Remote
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-returnables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: Returnables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-unencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: UnEncrypted
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newsession-string-sessiontype" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewSession (string: SessionType)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getsession-string-sessionkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetSession (string: SessionKey)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fire-userdata-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fire (userdata: Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getfire-userdata-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetFire (userdata: Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-userdata-player-string-command-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Send (userdata: Player, string: Command, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-userdata-player-string-command-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get (userdata: Player, string: Command, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkclient-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckClient (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ping-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ping (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makegui-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makeguiget-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeGuiGet (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getgui-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegui-userdata-player-string-guiname" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveGui (userdata: Player, string: GuiName)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newparticle-userdata-player-userdata-parent-string-type-table-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewParticle (userdata: Player, userdata: Parent, string: Type, table: Properties)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeparticle-userdata-player-userdata-parent-string-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveParticle (userdata: Player, userdata: Parent, string: Name)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newlocal-userdata-player-string-classname-table-properties-userdata-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewLocal (userdata: Player, string: ClassName, table: Properties, userdata: Parent)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makelocal-userdata-player-userdata-object-userdata-parent-bool-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeLocal (userdata: Player, userdata: Object, userdata: Parent, bool: Clone)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movelocal-player-object-parent-newparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      MoveLocal (Player, Object, Parent, newParent)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removelocal-player-object-parent-string-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveLocal (Player, Object, Parent, string: Match)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setlighting-player-string-property-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetLighting (Player, string: Property, Value)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fireevent-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      FireEvent (Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newplayerevent-player-string-type-function-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPlayerEvent (Player, string: Type, function: Function)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playaudio-player-int-audioid-int-volume-int-pitch-bool-looped" class="md-nav__link">
+    <span class="md-ellipsis">
+      PlayAudio (Player, int: AudioId, int: Volume, int: Pitch, bool: Looped)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopaudio-player-int-audioid" class="md-nav__link">
+    <span class="md-ellipsis">
+      StopAudio (Player, int: AudioId)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopallaudio-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      StopAllAudio (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loadcode-player-string-luacode-bool-getresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoadCode (Player, string: LuaCode, bool: GetResult)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypt-string-string-string-key-table-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encrypt (string: String, string: Key, table: Cache)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decrypt-string-string-string-key-table-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decrypt (string: String, string: Key, table: Cache)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-returnables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: Returnables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-unencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: UnEncrypted
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table: Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newsession-string-sessiontype" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewSession (string: SessionType)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getsession-string-sessionkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetSession (string: SessionKey)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fire-userdata-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fire (userdata: Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getfire-userdata-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetFire (userdata: Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-userdata-player-string-command-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Send (userdata: Player, string: Command, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-userdata-player-string-command-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get (userdata: Player, string: Command, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkclient-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckClient (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ping-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ping (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makegui-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makeguiget-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeGuiGet (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getgui-userdata-player-string-guiname-table-data-table-themedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegui-userdata-player-string-guiname" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveGui (userdata: Player, string: GuiName)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newparticle-userdata-player-userdata-parent-string-type-table-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewParticle (userdata: Player, userdata: Parent, string: Type, table: Properties)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeparticle-userdata-player-userdata-parent-string-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveParticle (userdata: Player, userdata: Parent, string: Name)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newlocal-userdata-player-string-classname-table-properties-userdata-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewLocal (userdata: Player, string: ClassName, table: Properties, userdata: Parent)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makelocal-userdata-player-userdata-object-userdata-parent-bool-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      MakeLocal (userdata: Player, userdata: Object, userdata: Parent, bool: Clone)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movelocal-player-object-parent-newparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      MoveLocal (Player, Object, Parent, newParent)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removelocal-player-object-parent-string-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveLocal (Player, Object, Parent, string: Match)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setlighting-player-string-property-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetLighting (Player, string: Property, Value)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fireevent-player-tuple-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      FireEvent (Player, tuple: Arguments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newplayerevent-player-string-type-function-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPlayerEvent (Player, string: Type, function: Function)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playaudio-player-int-audioid-int-volume-int-pitch-bool-looped" class="md-nav__link">
+    <span class="md-ellipsis">
+      PlayAudio (Player, int: AudioId, int: Volume, int: Pitch, bool: Looped)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopaudio-player-int-audioid" class="md-nav__link">
+    <span class="md-ellipsis">
+      StopAudio (Player, int: AudioId)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopallaudio-userdata-player" class="md-nav__link">
+    <span class="md-ellipsis">
+      StopAllAudio (userdata: Player)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loadcode-player-string-luacode-bool-getresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoadCode (Player, string: LuaCode, bool: GetResult)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypt-string-string-string-key-table-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encrypt (string: String, string: Key, table: Cache)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decrypt-string-string-string-key-table-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decrypt (string: String, string: Key, table: Cache)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Remote</h1>
+
+<p>Remote handles all remote server-client communication.</p>
+<h2 id="table-returnables">Table: Returnables<a class="headerlink" href="#table-returnables" title="Permanent link">&para;</a></h2>
+<p>This is a table containing functions that can be called via client.Remote.Get and will return something to the calling client.</p>
+<h2 id="table-unencrypted">Table: UnEncrypted<a class="headerlink" href="#table-unencrypted" title="Permanent link">&para;</a></h2>
+<p>This is a table containing functions that can be used by clients without needing encryption/various security checks.
+This contains functions mostly related to initial loading before keys are exchanged, or communication with non-adonis-client localscripts, as well as very basic rapid fire events like chat handling.</p>
+<h2 id="table-commands">Table: Commands<a class="headerlink" href="#table-commands" title="Permanent link">&para;</a></h2>
+<p>These are functions which can be ran by clients via client.Remote.Send
+They cannot return data and are purely "fire and forget." </p>
+<h2 id="newsession-string-sessiontype">NewSession (string: SessionType)<a class="headerlink" href="#newsession-string-sessiontype" title="Permanent link">&para;</a></h2>
+<p>Creates and returns a new session handler that can be used to facilitate temporary communication between the server and multiple users with special commands/event defined. </p>
+<p>Clients can listen for session events as needed via service.Events.SessionData</p>
+<p>Here's an example of NewSession in action in the form of a, at the time of writing this, work in process private chat command &amp; GUI:</p>
+<p>Server code:
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">newSession</span> <span class="o">=</span> <span class="n">Remote</span><span class="p">.</span><span class="n">NewSession</span><span class="p">(</span><span class="s2">&quot;PrivateChat&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">eventConnection</span> <span class="o">=</span> <span class="n">newSession</span><span class="p">.</span><span class="n">SessionEvent</span><span class="p">.</span><span class="n">Event</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="p">...)</span>
+    <span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{...};</span>
+    <span class="kd">local</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+    <span class="kr">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;SendMessage&quot;</span> <span class="kr">then</span>
+        <span class="kr">if</span> <span class="n">newSession</span><span class="p">.</span><span class="n">Users</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="kr">then</span>
+            <span class="nb">table.insert</span><span class="p">(</span><span class="n">newSession</span><span class="p">.</span><span class="n">Users</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Messages</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="kr">end</span>
+
+        <span class="n">newSession</span><span class="p">.</span><span class="n">SendToUsers</span><span class="p">(</span><span class="s2">&quot;PlayerSentMessage&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="kr">elseif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;LeaveSession&quot;</span> <span class="kr">then</span>
+        <span class="n">newSession</span><span class="p">.</span><span class="n">Users</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>
+        <span class="n">newSession</span><span class="p">.</span><span class="n">SendToUsers</span><span class="p">(</span><span class="s2">&quot;PlayerLeftSession&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+    <span class="kr">elseif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;EndSession&quot;</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">==</span> <span class="n">plr</span> <span class="kr">then</span>
+        <span class="n">newSession</span><span class="p">.</span><span class="n">End</span><span class="p">();</span>
+    <span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="n">GetPlayers</span><span class="p">(</span><span class="n">plr</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="kr">do</span>
+    <span class="n">newSession</span><span class="p">.</span><span class="n">AddUser</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">{</span>
+        <span class="n">Messages</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="p">});</span>
+
+    <span class="n">Remote</span><span class="p">.</span><span class="n">MakeGui</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;PrivateChat&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="n">Owner</span> <span class="o">=</span> <span class="n">plr</span><span class="p">;</span>
+        <span class="n">SessionKey</span> <span class="o">=</span> <span class="n">newSession</span><span class="p">.</span><span class="n">SessionKey</span><span class="p">;</span>
+    <span class="p">})</span>
+
+    <span class="c1">-- testing stuff below</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">newSession</span><span class="p">.</span><span class="n">SendToUsers</span><span class="p">(</span><span class="s2">&quot;PlayerSentMessage&quot;</span><span class="p">,</span> <span class="n">plr</span><span class="p">,</span> <span class="s2">&quot;this is a test message&quot;</span><span class="p">);</span>
+<span class="kr">end</span>
+</code></pre></div></p>
+<p>Client Code:
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">sessionEvent</span> <span class="o">=</span> <span class="n">service</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">SessionData</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">sessionKey</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="p">...)</span>
+    <span class="kd">local</span> <span class="n">vargs</span> <span class="o">=</span> <span class="p">{...};</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we got session thing!&quot;</span><span class="p">);</span>
+    <span class="kr">if</span> <span class="n">SessionKey</span> <span class="o">==</span> <span class="n">sessionKey</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SESSION KEY VALID&quot;</span><span class="p">)</span>
+      <span class="kr">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;PlayerSentChat&quot;</span> <span class="kr">then</span>
+        <span class="kd">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">vargs</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="kd">local</span> <span class="n">message</span> <span class="o">=</span> <span class="n">vargs</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;got chat: &quot;</span><span class="o">..</span> <span class="n">p</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="s2">&quot;Message: &quot;</span><span class="o">..</span> <span class="n">message</span><span class="p">)</span>
+      <span class="kr">end</span>
+   <span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="getsession-string-sessionkey">GetSession (string: SessionKey)<a class="headerlink" href="#getsession-string-sessionkey" title="Permanent link">&para;</a></h2>
+<p>Gets the session belonging to 'SessionKey'</p>
+<h2 id="fire-userdata-player-tuple-arguments">Fire (userdata: Player, tuple: Arguments)<a class="headerlink" href="#fire-userdata-player-tuple-arguments" title="Permanent link">&para;</a></h2>
+<p>(Raw fire)
+Sends data to the client belonging to 'Player' with any arguments passed.
+Does not handle command encryption before sending.
+This should not be used for normal server-client communication.</p>
+<h2 id="getfire-userdata-player-tuple-arguments">GetFire (userdata: Player, tuple: Arguments)<a class="headerlink" href="#getfire-userdata-player-tuple-arguments" title="Permanent link">&para;</a></h2>
+<p>(Raw fire)
+Functionally similar to Remote.Fire except it uses the RemoteFunction and is thus able to return data from the client.
+This should not be used for normal server-client communication. </p>
+<h2 id="send-userdata-player-string-command-tuple-arguments">Send (userdata: Player, string: Command, tuple: Arguments)<a class="headerlink" href="#send-userdata-player-string-command-tuple-arguments" title="Permanent link">&para;</a></h2>
+<p>Encrypts 'Command' and sends it with 'Arguments' to client of 'Player'
+This should be used for normal communication.</p>
+<h2 id="get-userdata-player-string-command-tuple-arguments">Get (userdata: Player, string: Command, tuple: Arguments)<a class="headerlink" href="#get-userdata-player-string-command-tuple-arguments" title="Permanent link">&para;</a></h2>
+<p>Encrypts 'Command' and sends it with 'Arguments' to client of 'Player'
+Functionally similar to Remote.Send except it uses the RemoteFunction and is thus able to return data from the client.
+This should be used for normal communication. </p>
+<h2 id="checkclient-userdata-player">CheckClient (userdata: Player)<a class="headerlink" href="#checkclient-userdata-player" title="Permanent link">&para;</a></h2>
+<p>Checks if the 'Player's client is hooked and ready for communication. </p>
+<h2 id="ping-userdata-player">Ping (userdata: Player)<a class="headerlink" href="#ping-userdata-player" title="Permanent link">&para;</a></h2>
+<p>Runs Remote.Get(Player, "Ping") and returns the result. </p>
+<h2 id="makegui-userdata-player-string-guiname-table-data-table-themedata">MakeGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)<a class="headerlink" href="#makegui-userdata-player-string-guiname-table-data-table-themedata" title="Permanent link">&para;</a></h2>
+<p>Tells 'Player's client to create the specified GUI with the specified data provided.</p>
+<h2 id="makeguiget-userdata-player-string-guiname-table-data-table-themedata">MakeGuiGet (userdata: Player, string: GuiName, table: Data, table: ThemeData)<a class="headerlink" href="#makeguiget-userdata-player-string-guiname-table-data-table-themedata" title="Permanent link">&para;</a></h2>
+<p>Identical to Remote.MakeGui except this will yield and return any data returned by the GUI created.
+This is used in conjunction with UI elements like the YesNoPrompt.</p>
+<h2 id="getgui-userdata-player-string-guiname-table-data-table-themedata">GetGui (userdata: Player, string: GuiName, table: Data, table: ThemeData)<a class="headerlink" href="#getgui-userdata-player-string-guiname-table-data-table-themedata" title="Permanent link">&para;</a></h2>
+<p>Alternative method of calling Remote.MakeGuiGet</p>
+<h2 id="removegui-userdata-player-string-guiname">RemoveGui (userdata: Player, string: GuiName)<a class="headerlink" href="#removegui-userdata-player-string-guiname" title="Permanent link">&para;</a></h2>
+<p>Removes the specified UI element belonging to 'GuiName' from 'Player'</p>
+<h2 id="newparticle-userdata-player-userdata-parent-string-type-table-properties">NewParticle (userdata: Player, userdata: Parent, string: Type, table: Properties)<a class="headerlink" href="#newparticle-userdata-player-userdata-parent-string-type-table-properties" title="Permanent link">&para;</a></h2>
+<p>Creates a new particle of 'Type' in 'Parent' locally for 'Player'</p>
+<h2 id="removeparticle-userdata-player-userdata-parent-string-name">RemoveParticle (userdata: Player, userdata: Parent, string: Name)<a class="headerlink" href="#removeparticle-userdata-player-userdata-parent-string-name" title="Permanent link">&para;</a></h2>
+<p>Removes particle from 'Parent' for 'Player'</p>
+<h2 id="newlocal-userdata-player-string-classname-table-properties-userdata-parent">NewLocal (userdata: Player, string: ClassName, table: Properties, userdata: Parent)<a class="headerlink" href="#newlocal-userdata-player-string-classname-table-properties-userdata-parent" title="Permanent link">&para;</a></h2>
+<p>Creates a new particle locally for 'Player' of 'ClassName' with 'Properties' in 'Parent'</p>
+<h2 id="makelocal-userdata-player-userdata-object-userdata-parent-bool-clone">MakeLocal (userdata: Player, userdata: Object, userdata: Parent, bool: Clone)<a class="headerlink" href="#makelocal-userdata-player-userdata-object-userdata-parent-bool-clone" title="Permanent link">&para;</a></h2>
+<p>Makes 'Object' local to 'Player' </p>
+<h2 id="movelocal-player-object-parent-newparent">MoveLocal (Player, Object, Parent, newParent)<a class="headerlink" href="#movelocal-player-object-parent-newparent" title="Permanent link">&para;</a></h2>
+<p>Moves local object to new parent for 'Player'</p>
+<h2 id="removelocal-player-object-parent-string-match">RemoveLocal (Player, Object, Parent, string: Match)<a class="headerlink" href="#removelocal-player-object-parent-string-match" title="Permanent link">&para;</a></h2>
+<p>Removes local from 'Player' in 'Parent' matching 'Object' or 'Match'</p>
+<h2 id="setlighting-player-string-property-value">SetLighting (Player, string: Property, Value)<a class="headerlink" href="#setlighting-player-string-property-value" title="Permanent link">&para;</a></h2>
+<p>Sets game.Lighting[Property] to 'Value' for 'Player'</p>
+<h2 id="fireevent-player-tuple-arguments">FireEvent (Player, tuple: Arguments)<a class="headerlink" href="#fireevent-player-tuple-arguments" title="Permanent link">&para;</a></h2>
+<p>Triggers client event on 'Player' with 'Arguments'</p>
+<h2 id="newplayerevent-player-string-type-function-function">NewPlayerEvent (Player, string: Type, function: Function)<a class="headerlink" href="#newplayerevent-player-string-type-function-function" title="Permanent link">&para;</a></h2>
+<p>Creates a new player event and can be triggered by the client. </p>
+<h2 id="playaudio-player-int-audioid-int-volume-int-pitch-bool-looped">PlayAudio (Player, int: AudioId, int: Volume, int: Pitch, bool: Looped)<a class="headerlink" href="#playaudio-player-int-audioid-int-volume-int-pitch-bool-looped" title="Permanent link">&para;</a></h2>
+<p>Plays audio locally on 'Player'</p>
+<h2 id="stopaudio-player-int-audioid">StopAudio (Player, int: AudioId)<a class="headerlink" href="#stopaudio-player-int-audioid" title="Permanent link">&para;</a></h2>
+<p>Stops current playing local audio on 'Player'</p>
+<h2 id="stopallaudio-userdata-player">StopAllAudio (userdata: Player)<a class="headerlink" href="#stopallaudio-userdata-player" title="Permanent link">&para;</a></h2>
+<p>Stops all playing audio (locally created by Adonis)</p>
+<h2 id="loadcode-player-string-luacode-bool-getresult">LoadCode (Player, string: LuaCode, bool: GetResult)<a class="headerlink" href="#loadcode-player-string-luacode-bool-getresult" title="Permanent link">&para;</a></h2>
+<p>Runs 'LuaCode' on the player's client and gets the result if 'GetResult' is true.</p>
+<h2 id="encrypt-string-string-string-key-table-cache">Encrypt (string: String, string: Key, table: Cache)<a class="headerlink" href="#encrypt-string-string-string-key-table-cache" title="Permanent link">&para;</a></h2>
+<p>Handles encryption.</p>
+<h2 id="decrypt-string-string-string-key-table-cache">Decrypt (string: String, string: Key, table: Cache)<a class="headerlink" href="#decrypt-string-string-string-key-table-cache" title="Permanent link">&para;</a></h2>
+<p>Handles decryption.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
