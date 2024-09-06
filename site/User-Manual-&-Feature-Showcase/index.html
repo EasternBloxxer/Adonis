@@ -1,0 +1,1215 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/User-Manual-%26-Feature-Showcase/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../guides/creating-a-theme/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>User Manual & Feature Showcase - Adonis Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Adonis Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Manual & Feature Showcase
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com//Epix-Incorporated/Adonis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /Epix-Incorporated/Adonis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Adonis Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com//Epix-Incorporated/Adonis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /Epix-Incorporated/Adonis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    User Manual & Feature Showcase
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/creating-a-theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a theme
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tables
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shared
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Shared
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/shared/service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The "Service" Metatable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/admin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/anti/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anti
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/server/remote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h1>
+<ol>
+<li><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#section-1-command-usage-guide">Command Usage Guide</a></li>
+<li><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#section-2-the-userpanel-gui">The "UserPanel" GUI</a></li>
+<li><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#section-3-ui-themes-showcase">UI Themes Showcase</a></li>
+<li><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#section-4-moderation-commands-reference">Moderation Commands Reference</a></li>
+<li><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#section-4-adonis-features-showcase">Adonis Features Showcase</a></li>
+</ol>
+<hr />
+<div align="center">
+
+## ℹ️ **Notice**
+
+**This manual is intended for regular users, moderators and admins in ROBLOX games using the Adonis admin system. For guidance on installing Adonis in your game as a developer, please refer to the [README](https://github.com/Sceleratis/Adonis/blob/master/README.md) file in the repository. For API documentation, navigate to the [other pages](https://github.com/Sceleratis/Adonis/wiki) on this wiki.**
+
+</div>
+
+<hr />
+<h1 id="section-1-command-usage-guide">Section 1: Command Usage Guide<a class="headerlink" href="#section-1-command-usage-guide" title="Permanent link">&para;</a></h1>
+<h2 id="execution">Execution<a class="headerlink" href="#execution" title="Permanent link">&para;</a></h2>
+<p>These are the following ways by which an Adonis command can be executed by a user:
+- by chat (as long as chat commands have not been disabled)
+- by command console (default keybind for opening the console is <code>'</code>; the console may be restricted or disabled according to settings)
+- by other interfaces such as <code>:cmdbox</code></p>
+<p>In all cases, the prefix (which is <code>:</code> by default for admin commands and <code>!</code> by default for player commands) <em>must</em> be included at the start of each command for it to work.</p>
+<p>ℹ️ <strong>Tip:</strong> To run a command silently in the chat (so that other players do not see it), either prepend it with "/e " (eg. "/e :kill scel") or enable chat command hiding in your <a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#client-settings">client settings</a>.</p>
+<h2 id="player-selectors">Player Selectors<a class="headerlink" href="#player-selectors" title="Permanent link">&para;</a></h2>
+<p>Commands that take players as their argument (eg. <code>:kill</code>) will normally support either a singular player or a comma-separated list of player names.</p>
+<p><strong>Example:</strong> <code>:god scel</code> or <code>:kill noob1,noob2</code></p>
+<p>Note that player names are not case-sensitive and may be partial, eg. <code>scel</code> for <code>Sceleratis</code>.</p>
+<p>In addition to simply using player names, the following special identifiers for targeting certain groups of players exist:
+- <code>me</code> - yourself (the executor of the command)
+- <code>all</code> - everyone in the server
+- <code>others</code> - everyone in the server except yourself
+- <code>admins</code> - all admins in the server
+- <code>nonadmins</code> - everyone except admins in the server
+- <code>random</code> - a random person in the server
+- <code>#NUM</code> - <NUM> random players in the server
+- <code>@USERNAME</code> - targets a specific player whose username is exactly <USERNAME>
+- <code>%TEAM</code> - members of the team <TEAM>
+- <code>$GROUPID</code> - members of the group with ID <GROUPID> (number found in the Roblox group webpage URL)
+- <code>radius-NUM</code> - anyone within a <NUM>-stud radius of you</p>
+<p>Placing <code>-</code> before any selector or player name will <em>invert</em> the selection and select everyone except those within the selection defined after <code>-</code>.
+To illustrate, using the <code>others</code> selector is essentially the same as doing <code>all,-me</code>.</p>
+<p><strong>Example:</strong> <code>:explode -radius-10</code> - explodes all players further than 10 studs from you.</p>
+<h2 id="batch-commands">Batch Commands<a class="headerlink" href="#batch-commands" title="Permanent link">&para;</a></h2>
+<p>Multiple commands can be ran sequentially at a time by separating them using the batch key, which defaults to <code>|</code> (vertical pipe).</p>
+<p>Additionally, you can insert timed delays using <code>!wait &lt;duration in seconds&gt;</code>.</p>
+<p><strong>Example:</strong> <code>:ff me | :m Exploding everyone in 10 seconds! | !wait 10 | :explode all</code> - gives you a forcefield and makes a message announcement, waits 10 seconds, then explodes everyone.</p>
+<h2 id="repetition">Repetition<a class="headerlink" href="#repetition" title="Permanent link">&para;</a></h2>
+<p>Admins/moderators by default have access to the <code>:repeat &lt;times&gt; &lt;delay&gt;</code> command, which easily allows a command to be ran in a loop.</p>
+<p><strong>Example:</strong> <code>:repeat 10 1 :sword me | :heal me</code> - will give you a sword and heal yourself once every 1 second, for 10 times.</p>
+<h2 id="reference-commands">Reference Commands<a class="headerlink" href="#reference-commands" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>:cmds</code> for a list of available commands</li>
+<li><code>:cmdinfo &lt;command&gt;</code> for detailed info about a specific command</li>
+<li><code>!brickcolors</code> for a list of valid BrickColors (can be used in some commands which take a brickcolor argument)</li>
+<li><code>!materials</code> for a list of material types</li>
+<li><code>:capes</code> for a list of preset capes available to admins</li>
+<li><code>:musiclist</code> for a list of preset audios</li>
+<li><code>:insertlist</code> for a list of assets that can be inserted using <code>:insert &lt;name&gt;</code> (set by the developer in <code>settings.InsertList</code>)</li>
+</ul>
+<hr />
+<p><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#contents">Return to Top</a></p>
+<h1 id="section-2-the-userpanel-gui">Section 2: The "UserPanel" GUI<a class="headerlink" href="#section-2-the-userpanel-gui" title="Permanent link">&para;</a></h1>
+<p>The UserPanel GUI can be used to quickly access certain things in Adonis, such as commands, as well as configure Adonis client or server settings.
+This wiki page will go over the different tabs within Adonis's UserPanel GUI and what they do.</p>
+<h2 id="info">Info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
+<p><img width="400" alt="screenshot" src="https://user-images.githubusercontent.com/81153405/175774689-99df8917-150b-458f-83b8-1d957b9bb030.png"></p>
+<p>The info tab shows you information about Adonis, and gives the user convenient buttons to perform actions such as opening the command list, viewing the changelog, viewing credits, getting the loader, or getting the system's source in the form of its MainModule. </p>
+<h2 id="donate">Donate<a class="headerlink" href="#donate" title="Permanent link">&para;</a></h2>
+<p><img width="400" alt="screenshot" src="https://user-images.githubusercontent.com/81153405/175774717-3a95fa3c-e29f-4c68-ae1a-86b159ee39fb.png"></p>
+<p>This is where users can donate to Adonis's development and control settings related to their donator perks. These perks can be disabled by the place owner in the settings module of the Loader. Donation perks are intended to be purely visual and should not impact gameplay. When users donate in your game, Roblox will give the place owner 10% of the sale.</p>
+<h2 id="keybinds">Keybinds<a class="headerlink" href="#keybinds" title="Permanent link">&para;</a></h2>
+<p><img alt="The keybinds tab" src="https://deveros.net/img/keybindtab1.png" /></p>
+<p>The keybinds tab allows users to bind command strings to a specific key, so when they press that key the specified command gets executed.</p>
+<h2 id="aliases">Aliases<a class="headerlink" href="#aliases" title="Permanent link">&para;</a></h2>
+<p><img alt="The alias tab" src="https://deveros.net/img/aliastab1.png" /></p>
+<p>Aliases allow you to create custom commands that point to existing commands, or a combination of existing commands. When creating an alias, you can add markers for command arguments. The order the argument identifiers appear in the command string is the order the arguments will be replaced in.</p>
+<p>To better understand lets go through what's going on in the above screenshot:
+The command string <code>:kill &lt;arg1&gt; | :fire &lt;arg1&gt; &lt;arg2&gt;</code> is bound to <code>:killfire</code>
+The following happens when <code>:killfire scel Really red</code> is ran:</p>
+<ol>
+<li>In the command string, both substrings for <code>&lt;arg1&gt;</code> is replaced with <code>scel</code> and the substring <code>&lt;arg2&gt;</code> is replaced with <code>Really red</code></li>
+<li><code>:killfire scel Really red</code> is replaced by <code>:kill scel | :fire scel Really red</code>.</li>
+<li>The new command string gets processed like any other command. In this case we are running two commands at once, in other words a "batch" command as indicated by the <code>|</code> separating the two commands. The BatchKey setting can be used to change the <code>|</code> (vertical pipe) to whatever you'd like as long as it is not the same as the SplitKey or any of the Prefix settings.</li>
+</ol>
+<p>It's important to note that the number of arguments is determined by the number of unique argument identifiers. Also, the actual text within the argument identifier is not important and is only used to match user-supplied arguments to where they should be. The order that these unique argument identifiers appear in the command string is what determines which which identifier will match argument 1, the next unique one found being argument 2, and so on. This is important to keep in mind. If you were to change the command string to <code>:kill &lt;arg2&gt; | :fire &lt;arg2&gt; &lt;arg1&gt;</code> and then chatted <code>:killfire scel Really red</code> <code>scel</code> would be assigned to <code>&lt;arg2&gt;</code> and <code>Really red</code> would be assigned to <code>&lt;arg1&gt;</code> so <code>:killfire Really red scel</code> would not work (as <code>:kill scel</code> would now be <code>:kill Really red</code>) It should also be noted that arguments that are intended to take spaces must appear last as otherwise portions of them may be treated as part of previous arguments when using the default SplitKey (a blank space.)</p>
+<p>This system is currently still in development and may see improvements in the near future, such as manually defining in the alias string how arguments should be interpreted and matched to the command string. For now, you should not add argument indicators to the alias string. They should only be in the command string, and the order they appear is what currently determines the argument position they will be matched to in the chatted message. </p>
+<h2 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
+<p><img width="400" alt="screenshot" src="https://user-images.githubusercontent.com/81153405/175774781-bdc2443c-ad92-45ad-99d1-195623bb2024.png"></p>
+<p>You've likely noticed that the UserPanel GUI in the screenshots here does not look like the default UserPanel. This is because Adonis supports multiple themes, my personal favorite being the Rounded theme (the one seen in these screenshots.) The default theme is named "Default" and is used for all UI development, and determines the default GUIs and UI modules used in the event the selected theme does not have the GUI being generated.</p>
+<p>Users can choose what theme they would like to use by clicking the text next to the arrow pointing down next to the "Theme" listing.</p>
+<p>There are also a few other client-specific settings. It should be noted that these settings are user-specific and only affect the user's client. They are not game breaking and only seek to offer finer control over certain things if the user wishes to do so.</p>
+<h3 id="client-settings">Client Settings<a class="headerlink" href="#client-settings" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keybinds</td>
+<td>Enables/Disables keybinds (if disabled, keybinds will no longer work until re-enabled)</td>
+</tr>
+<tr>
+<td>UI Keep Alive</td>
+<td>Determines whether or not Adonis should attempt to prevent the deletion of its GUIs when the player respawns.</td>
+</tr>
+<tr>
+<td>Particle Effects</td>
+<td>Adonis contains a number of commands that involve particle effects, which for some users may be irritating or even performance-impacting. All particle effects are local to each client and as such can be toggled using this setting.</td>
+</tr>
+<tr>
+<td>Capes</td>
+<td>Like particle effects, capes (such as donor capes) are handled locally and can be disabled.</td>
+</tr>
+<tr>
+<td>Hide Chat Commands</td>
+<td>Whether Adonis commands that you run via the chat will automatically be hidden from other players.</td>
+</tr>
+<tr>
+<td>Console Key</td>
+<td>This is the key that will open/close the command console (the bar that appears when you press the Quote key by default).</td>
+</tr>
+<tr>
+<td>Theme</td>
+<td>Allows you to select the UI theme you want to use. Changing this to "Game Theme" will use whatever theme is set in the Adonis settings module (in the Loader). This is used by default for all new users.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="game">Game<a class="headerlink" href="#game" title="Permanent link">&para;</a></h2>
+<p><img width="400" alt="screenshot" src="https://user-images.githubusercontent.com/81153405/175774809-b701f337-d5f6-41e2-99e1-6e2e5ce3ec39.png"></p>
+<p>This is where creators can control Adonis related server settings for their game while in-game instead of in studio. "Clear all saved settings" will clear any settings previously written to the datastore. This is especially useful if you encounter issues after changing a setting in-game or quickly want to revert to only what is set within the settings module. Anything with "Cannot change" next to it can only be changed in studio currently.</p>
+<p>If you ever change the prefix in-game and suddenly find yourself unable to open settings to fix it, running <code>:adonissettings</code> will open the UserPanel GUI and focus the "Game" tab so you can fix any issues. The <code>:adonissettings</code> command will <em>always</em> use <code>:</code> as a prefix so you can't accidentally change it to something unusable.</p>
+<hr />
+<p><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#contents">Return to Top</a></p>
+<h1 id="section-3-ui-themes-showcase">Section 3: UI Themes Showcase<a class="headerlink" href="#section-3-ui-themes-showcase" title="Permanent link">&para;</a></h1>
+<p>The following are the themes that come with Adonis by default:</p>
+<h2 id="default">Default<a class="headerlink" href="#default" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width=350 src="https://user-images.githubusercontent.com/81153405/175773465-dcc6d13f-e3a4-44ef-bfe2-ccf487fd210f.png"></td>
+</tr>
+<tr>
+<td>HelpButton</td>
+<td><img width="44" src="https://user-images.githubusercontent.com/81153405/175773752-8cc3648d-0f29-4b13-8cc1-805dfd4d5df7.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="220" src="https://user-images.githubusercontent.com/81153405/175773663-cbfe3044-dabb-4c63-82f5-6ec1f4516239.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="196" src="https://user-images.githubusercontent.com/81153405/175775723-0ca7ba15-dc61-4264-9004-e3b388348baa.png"></td>
+</tr>
+<tr>
+<td>Message</td>
+<td><img width="521" src="https://user-images.githubusercontent.com/81153405/175773703-5ba1195e-e255-4af8-aca1-5c9e07fd29b4.png"></td>
+</tr>
+<tr>
+<td>Hint</td>
+<td><img width="525" src="https://user-images.githubusercontent.com/81153405/175773721-4acf607b-eb67-4234-93b4-dbb8c61a1789.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="519" src="https://user-images.githubusercontent.com/81153405/175773781-b7c2208d-c8e2-4cfa-898b-0d92b71433df.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="rounded">Rounded<a class="headerlink" href="#rounded" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width="350" src="https://user-images.githubusercontent.com/81153405/175773919-6ecbe89c-acb6-4280-a139-d54d28a885d1.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="238" src="https://user-images.githubusercontent.com/81153405/175773995-b8ccdefa-61d1-4f79-866d-639e7d4d3ec2.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="193" src="https://user-images.githubusercontent.com/81153405/175775603-312460af-29a2-472a-a3b6-c478da438018.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="258" src="https://user-images.githubusercontent.com/81153405/175774017-74111fdc-a5d2-49bc-b5da-98008ee9a984.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="colorize">Colorize<a class="headerlink" href="#colorize" title="Permanent link">&para;</a></h2>
+<p>Note: rainbow effects are animated with chromatic interpolation.</p>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width="350" src="https://user-images.githubusercontent.com/81153405/175774144-7c8d2c0d-3256-44ed-b6a1-42687087a742.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="522" src="https://user-images.githubusercontent.com/81153405/175774386-656a40b8-f81f-4b98-bdca-45cbd45ecf0a.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="195" src="https://user-images.githubusercontent.com/81153405/175775670-bcae0131-b4fc-4fda-8e69-15a52a14c500.png"></td>
+</tr>
+<tr>
+<td>Message</td>
+<td><img width="521" src="https://user-images.githubusercontent.com/81153405/175774407-e8d40ce2-5963-4e2a-bee1-75afd72c745b.png"></td>
+</tr>
+<tr>
+<td>Hint</td>
+<td><img width="521" src="https://user-images.githubusercontent.com/81153405/175774354-e1d69819-4a20-447b-8f7c-7ab72a9cca54.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="523" src="https://user-images.githubusercontent.com/81153405/175774427-0da92a0e-9d18-4f09-81bb-1eafd7017fe9.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="basicadmin">BasicAdmin<a class="headerlink" href="#basicadmin" title="Permanent link">&para;</a></h2>
+<p>This theme only changes the announcement GUIs.</p>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message</td>
+<td><img width="525" src="https://user-images.githubusercontent.com/81153405/175774486-aed9054b-1f81-49bb-a2e8-09d4859f41ac.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="aero">Aero<a class="headerlink" href="#aero" title="Permanent link">&para;</a></h2>
+<p>Made by <a href="https://github.com/Expertcoderz">@Expertcoderz</a>.</p>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width="350" src="https://user-images.githubusercontent.com/81153405/175774543-a1a69274-8f68-43f7-908c-08e08f0c6721.png"></td>
+</tr>
+<tr>
+<td>HelpButton</td>
+<td><img width="41" src="https://user-images.githubusercontent.com/81153405/175774556-38e53265-d3f6-4147-a508-811aaf7dc914.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="518" src="https://user-images.githubusercontent.com/81153405/175774568-fc38f1ee-cb58-46d4-8dd8-84433be01599.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="154" src="https://user-images.githubusercontent.com/81153405/175775557-37640014-d50d-4bec-b247-444477703f8f.png"></td>
+</tr>
+<tr>
+<td>Message</td>
+<td><img width="523" src="https://user-images.githubusercontent.com/81153405/175774591-e812123f-acef-41d9-a8fe-5c81a2e187e0.png"></td>
+</tr>
+<tr>
+<td>Hint</td>
+<td><img width="521" src="https://user-images.githubusercontent.com/81153405/175774617-a3f05a0d-44fc-4a42-a406-4a44a6afbda8.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="520" src="https://user-images.githubusercontent.com/81153405/175774632-4b0d796f-4f81-4e3b-9f67-41cc1cb31f1c.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="unity">Unity<a class="headerlink" href="#unity" title="Permanent link">&para;</a></h2>
+<p>Made by <a href="https://github.com/LolloDev5123">@LolloDev5123</a>.</p>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width="350" src="https://user-images.githubusercontent.com/81153405/175774842-62dc2ab0-fd16-400e-88e6-3be7798e0196.png"></td>
+</tr>
+<tr>
+<td>HelpButton</td>
+<td><img width="39" src="https://user-images.githubusercontent.com/81153405/175775010-3a10b195-4510-4867-ba47-5fd3c7eb50ec.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="525" src="https://user-images.githubusercontent.com/81153405/175775055-1963106c-ce2e-447c-8d3b-f8b666b005ed.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="190" src="https://user-images.githubusercontent.com/81153405/175775530-2f28f377-0e79-4382-ad39-fb6c9fbd87cb.png"></td>
+</tr>
+<tr>
+<td>Message</td>
+<td><img width="525" src="https://user-images.githubusercontent.com/81153405/175775085-c3511d8a-03c3-4a23-a0d8-4144ed20a417.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="426" src="https://user-images.githubusercontent.com/81153405/175775153-4a8e5834-f479-4c58-a0e8-baf9205d7270.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="windows-xp">Windows XP<a class="headerlink" href="#windows-xp" title="Permanent link">&para;</a></h2>
+<p>Made by <a href="https://github.com/P3tray">@P3tray</a>.</p>
+<table>
+<thead>
+<tr>
+<th>GUI</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserPanel</td>
+<td><img width="350" src="https://user-images.githubusercontent.com/81153405/175775187-09e19512-18fc-440e-a3b2-9f43c3c3f211.png"></td>
+</tr>
+<tr>
+<td>HelpButton</td>
+<td><img width="39" src="https://user-images.githubusercontent.com/81153405/175775216-abec62e7-0470-4c80-aebf-f0dfbcd5db70.png"></td>
+</tr>
+<tr>
+<td>Console</td>
+<td><img width="225" src="https://user-images.githubusercontent.com/81153405/175775235-ed9d4bb3-5c4f-4146-a5ae-094fe401daae.png"></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td><img width="163" src="https://user-images.githubusercontent.com/81153405/175775484-454d062d-dd6a-4a32-abd7-c4fe031c2e5a.png"></td>
+</tr>
+<tr>
+<td>Message</td>
+<td><img width="518" src="https://user-images.githubusercontent.com/81153405/175775274-736e7578-ec6a-4098-bd8d-3ae1fd727014.png"></td>
+</tr>
+<tr>
+<td>Hint</td>
+<td><img width="522" src="https://user-images.githubusercontent.com/81153405/175775296-7bbb0486-b365-4ecb-a844-a7a74d4907c4.png"></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><img width="260" src="https://user-images.githubusercontent.com/81153405/175775314-50ce08b9-e174-40fe-87af-f83071492488.png"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#contents">Return to Top</a></p>
+<h1 id="section-4-moderation-commands-reference">Section 4: Moderation Commands Reference<a class="headerlink" href="#section-4-moderation-commands-reference" title="Permanent link">&para;</a></h1>
+<p>This section serves as a basic reference guide for the essential moderation commands offered by Adonis.</p>
+<h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
+<h3 id="kick-player-reason"><code>:kick &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#kick-player-reason" title="Permanent link">&para;</a></h3>
+<p>Disconnects the specified player from the server. If specified, the reason is shown to the player.</p>
+<h2 id="warning-players">Warning Players<a class="headerlink" href="#warning-players" title="Permanent link">&para;</a></h2>
+<h3 id="warnings-player"><code>:warnings &lt;player&gt;</code><a class="headerlink" href="#warnings-player" title="Permanent link">&para;</a></h3>
+<p>Displays the specified player's warning log.</p>
+<h3 id="warn-player-reason"><code>:warn &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#warn-player-reason" title="Permanent link">&para;</a></h3>
+<p>Gives the specified player a warning, upon which they will be notified with the reason.</p>
+<h3 id="kickwarn-player-reason"><code>:kickwarn &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#kickwarn-player-reason" title="Permanent link">&para;</a></h3>
+<p>Gives the specified player a warning and kicks them; displays the warning reason in their kick message.</p>
+<h3 id="removewarning-player-reason"><code>:removewarning &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#removewarning-player-reason" title="Permanent link">&para;</a></h3>
+<p>Deletes the specified warning from the player's warning log.</p>
+<h3 id="clearwarnings-player"><code>:clearwarnings &lt;player&gt;</code><a class="headerlink" href="#clearwarnings-player" title="Permanent link">&para;</a></h3>
+<p>Clears the player's warning log.</p>
+<h2 id="banning-players">Banning Players<a class="headerlink" href="#banning-players" title="Permanent link">&para;</a></h2>
+<h3 id="banlist"><code>:banlist</code><a class="headerlink" href="#banlist" title="Permanent link">&para;</a></h3>
+<p>Displays a list of normal bans.</p>
+<h3 id="timebanlist"><code>:timebanlist</code><a class="headerlink" href="#timebanlist" title="Permanent link">&para;</a></h3>
+<p>Displays a list of time-banned users.</p>
+<h3 id="trellobanlistsbl"><code>:trellobanlist/:sbl</code><a class="headerlink" href="#trellobanlistsbl" title="Permanent link">&para;</a></h3>
+<p>Displays a list of users banned via Trello; only applicable if Trello integration is configured.</p>
+<h3 id="banserverban-player-reason"><code>:ban/:serverban &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#banserverban-player-reason" title="Permanent link">&para;</a></h3>
+<p>Bans the specified player from the current server. Note that they may still be able to join other servers.</p>
+<h3 id="permbangameban-player-reason"><code>:permban/:gameban &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#permbangameban-player-reason" title="Permanent link">&para;</a></h3>
+<p>Bans the specified player from <em>all</em> game servers, for an indefinite amount of time. Enforced immediately, so if the user is in a server other than where the command is run, they will be kicked by the system.</p>
+<h3 id="tempbantimeban-player-duration-smhd-reason"><code>:tempban/:timeban &lt;player&gt; &lt;duration (s/m/h/d)&gt; &lt;reason&gt;</code><a class="headerlink" href="#tempbantimeban-player-duration-smhd-reason" title="Permanent link">&para;</a></h3>
+<p>Bans the specified player from <em>all</em> game servers, for a specific amount of time. Enforced immediately.</p>
+<p><strong>Example:</strong> <code>:tempban Player1 3d</code> -- globally-bans Player1 for 3 days.</p>
+<h3 id="trelloban-player-reason"><code>:trelloban &lt;player&gt; &lt;reason&gt;</code><a class="headerlink" href="#trelloban-player-reason" title="Permanent link">&para;</a></h3>
+<p>Adds the specified player to the Trello ban list, if Trello integrations are configured for the game.</p>
+<p>ℹ️ <strong>Tip:</strong> The above commands support full usernames for the <code>&lt;player&gt;</code> argument, which means you can ban specific users who are not currently in your server.</p>
+<h2 id="player-notes">Player Notes<a class="headerlink" href="#player-notes" title="Permanent link">&para;</a></h2>
+<h3 id="notes-player"><code>:notes &lt;player&gt;</code><a class="headerlink" href="#notes-player" title="Permanent link">&para;</a></h3>
+<p>Displays a list of notes on the specified player.</p>
+<h3 id="note-player-note"><code>:note &lt;player&gt; &lt;note&gt;</code><a class="headerlink" href="#note-player-note" title="Permanent link">&para;</a></h3>
+<p>Sets a note on the specified player.</p>
+<h3 id="removenote-player-note"><code>:removenote &lt;player&gt; &lt;note&gt;</code><a class="headerlink" href="#removenote-player-note" title="Permanent link">&para;</a></h3>
+<p>Removes a note from a specified player. Specify <code>all</code> for <code>&lt;note&gt;</code> to clear all notes on that player.</p>
+<hr />
+<p><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#contents">Return to Top</a></p>
+<h1 id="section-5-adonis-features-showcase">Section 5: Adonis Features Showcase<a class="headerlink" href="#section-5-adonis-features-showcase" title="Permanent link">&para;</a></h1>
+<p>Here's a miscellaneous collection of some interesting features that many users of the Adonis admin system may not be aware of:</p>
+<h2 id="teams">🚩 <code>:teams</code><a class="headerlink" href="#teams" title="Permanent link">&para;</a></h2>
+<p>This is an interface that allows you to view, create, delete and join teams easily.</p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175766290-50dee520-0017-4aa3-8177-6719fa5c159c.jpg"></p>
+<h2 id="tools-inventory-monitor-gui">🛠️ <code>:tools</code> -- Inventory Monitor GUI<a class="headerlink" href="#tools-inventory-monitor-gui" title="Permanent link">&para;</a></h2>
+<p>This utility allows you to view and manage players' backpacks via a user-friendly realtime inventory monitoring interface. An alternative to manually running the <code>:viewtools &lt;player&gt;</code>, <code>:removetool &lt;player&gt; &lt;tool name&gt;</code> and <code>:removetools &lt;player&gt;</code> commands.</p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175766295-f281dc9c-be9a-4090-84b6-1bcee43ec47d.jpg"></p>
+<h2 id="explorer">📂 <code>:explorer</code><a class="headerlink" href="#explorer" title="Permanent link">&para;</a></h2>
+<p>This is a built-in alternative to <code>:dex</code> which allows you to view and navigate the game's file structure as well as delete objects.</p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175766293-f58e9569-73cd-4aab-8f09-42465ccd7f86.jpg"></p>
+<h2 id="players">📃 <code>:players</code><a class="headerlink" href="#players" title="Permanent link">&para;</a></h2>
+<p>Displays full a list of in-game players along with some live-updated info about the state of their characters; may be useful for moderators if your game has the regular player list GUI hidden.</p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175766296-2bbc9344-06a9-41be-b25e-ed50957b8400.jpg"></p>
+<h2 id="profile-player">🔍 <code>!profile &lt;player&gt;</code><a class="headerlink" href="#profile-player" title="Permanent link">&para;</a></h2>
+<p>Displays quite comprehensive information about a specific player.</p>
+<p><em>Some details such as safechat status and the "Game" tab are hidden from non-admins for security reasons.</em></p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175767046-72251caa-3b24-4547-9044-5cbb77d41aef.jpg"></p>
+<h2 id="i-serverinfo">ℹ️ <code>!serverinfo</code><a class="headerlink" href="#i-serverinfo" title="Permanent link">&para;</a></h2>
+<p>Displays information about the current server.</p>
+<p><em>Some details are hidden from non-admins for security reasons.</em></p>
+<p><img width=400 src="https://user-images.githubusercontent.com/81153405/175767132-0ad4fbc5-087b-4280-b73e-ade9d9bdf9a0.jpg"></p>
+<h2 id="incognito-player">🕵️ <code>:incognito &lt;player&gt;</code><a class="headerlink" href="#incognito-player" title="Permanent link">&para;</a></h2>
+<p>A powerful command that allows admins to hide themselves from other players in the server by vanishing from their player lists.</p>
+<p><a href="https://github.com/Sceleratis/Adonis/wiki/User-Manual-&amp;-Feature-Showcase#contents">Return to Top</a></p>
+<hr />
+<p>That's all, folks!</p>
+<p><sub>Notice anything wrong? Submit an issue <a href="https://github.com/Sceleratis/Adonis/issues/new/choose">here</a> or discuss it in our official <a href="https://discord.com/invite/H5RvTP3">Discord server</a>.</sub></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
