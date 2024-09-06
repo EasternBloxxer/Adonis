@@ -8,24 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/Structure/">
+        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/tables/server/anti/">
       
       
+        <link rel="prev" href="../admin/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+        <link rel="next" href="../commands/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>File Structure - Adonis Documentation</title>
+        <title>Anti - Adonis Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-structure" class="md-skip">
+        <a href="#clienttimeoutlimit" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+    <a href="../../.." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Structure
+              Anti
             
           </span>
         </div>
@@ -219,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+    <a href="../../.." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -249,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -269,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Manual-%26-Feature-Showcase/" class="md-nav__link">
+      <a href="../../../User-Manual-%26-Feature-Showcase/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/creating-a-theme/" class="md-nav__link">
+      <a href="../../../guides/creating-a-theme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -349,17 +353,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -373,7 +379,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Tables
@@ -422,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/shared/service/" class="md-nav__link">
+      <a href="../../shared/service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,17 +454,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -472,7 +480,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Server
@@ -486,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/admin/" class="md-nav__link">
+      <a href="../admin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -504,10 +512,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tables/server/anti/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Anti
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -516,6 +542,150 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clienttimeoutlimit" class="md-nav__link">
+    <span class="md-ellipsis">
+      ClientTimeoutLimit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeplayer-player-object-reason-optional-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemovePlayer (Player (Object), Reason (Optional String))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkallclients" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckAllClients ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#userspoofcheck-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      UserSpoofCheck (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sanitize-object-classlist-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sanitize (Object, ClassList (Table))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isfake-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      isFake (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeiffake-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveIfFake (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findfakeplayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      FindFakePlayers ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getclassname-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetClassName (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlocked-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLocked (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objrlocked-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjRLocked (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignname" class="md-nav__link">
+    <span class="md-ellipsis">
+      AssignName ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detected-player-object-action-string-info-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detected (Player (Object), Action (String), Info (String))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checknameid-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckNameID (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -528,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/commands/" class="md-nav__link">
+      <a href="../commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/core/" class="md-nav__link">
+      <a href="../core/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/functions/" class="md-nav__link">
+      <a href="../functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/logs/" class="md-nav__link">
+      <a href="../logs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -612,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/process/" class="md-nav__link">
+      <a href="../process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/remote/" class="md-nav__link">
+      <a href="../remote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,8 +849,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -689,86 +857,128 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core" class="md-nav__link">
+  <a href="#clienttimeoutlimit" class="md-nav__link">
     <span class="md-ellipsis">
-      Core
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server-load-order" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server Load Order:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#client-load-order" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client Load Order:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dependencies
+      ClientTimeoutLimit
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
+  <a href="#removeplayer-player-object-reason-optional-string" class="md-nav__link">
     <span class="md-ellipsis">
-      Plugins
+      RemovePlayer (Player (Object), Reason (Optional String))
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-scripts" class="md-nav__link">
+  <a href="#checkallclients" class="md-nav__link">
     <span class="md-ellipsis">
-      Main Scripts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Main Scripts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server
+      CheckAllClients ()
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#client" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#userspoofcheck-player-object" class="md-nav__link">
     <span class="md-ellipsis">
-      Client
+      UserSpoofCheck (Player (Object))
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#sanitize-object-classlist-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sanitize (Object, ClassList (Table))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isfake-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      isFake (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeiffake-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      RemoveIfFake (Player (Object))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findfakeplayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      FindFakePlayers ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getclassname-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetClassName (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlocked-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLocked (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objrlocked-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjRLocked (Object)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignname" class="md-nav__link">
+    <span class="md-ellipsis">
+      AssignName ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detected-player-object-action-string-info-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detected (Player (Object), Action (String), Info (String))
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checknameid-player-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckNameID (Player (Object))
+    </span>
+  </a>
   
 </li>
       
@@ -790,50 +1000,44 @@
   
 
 
-<h1 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h1>
-<p>The internal file structure of both Adonis's client and server can be broken down into four main parts:</p>
-<h2 id="core">Core<a class="headerlink" href="#core" title="Permanent link">&para;</a></h2>
-<p>This folder contains modules essential to the script's functionality. When Adonis starts, all modules within the core folder are loaded in a specific order. These modules must be loaded, in order, before the script can start doing anything. </p>
-<h3 id="server-load-order">Server Load Order:<a class="headerlink" href="#server-load-order" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Service</li>
-<li>Logs</li>
-<li>Variables</li>
-<li>Core</li>
-<li>Remote</li>
-<li>Functions</li>
-<li>Process</li>
-<li>Admin</li>
-<li>HTTP</li>
-<li>Anti</li>
-<li>Commands</li>
-</ol>
-<h3 id="client-load-order">Client Load Order:<a class="headerlink" href="#client-load-order" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Service </li>
-<li>Variables</li>
-<li>UI</li>
-<li>Core</li>
-<li>Remote</li>
-<li>Functions</li>
-<li>Process</li>
-<li>Anti</li>
-</ol>
-<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>All dependencies of the client or server are contained within the respective "Dependencies" folder. This can include pre-made scripts and UI elements.</p>
-<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
-<p>The "Plugins" folders specific non-essential modules to be loaded. The server will automatically populate the client's Plugins folder if user defined client plugins are present in Loader &gt; Config &gt; Plugins</p>
-<h2 id="main-scripts">Main Scripts<a class="headerlink" href="#main-scripts" title="Permanent link">&para;</a></h2>
-<h3 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h3>
-<p>Handles the server-side loading process.</p>
-<h3 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h3>
-<p>Handles the client-side loading process.</p>
-<h1 id="code-structure">Code Structure<a class="headerlink" href="#code-structure" title="Permanent link">&para;</a></h1>
-<p>Adonis has three main tables that nearly all variables, functions, settings, objects, and folders, can be accessed from. </p>
-<h2 id="server-client">"server" &amp; "client"<a class="headerlink" href="#server-client" title="Permanent link">&para;</a></h2>
-<p>The "server" and "client" variables are tables containing everything related to Adonis's functionality. This includes any tables, functions, and variables added by loaded modules.</p>
-<h2 id="service">service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
-<p>The "service" metatable is a variable unique to Adonis and it's modules that provides many functions and services used throughout both the client and server. Within the service metatable are functions to handle anything from task creation and tracking to object deletion. If the index requested is not found within the service table, it will return a game service matching the index if it can. (Specifically, it just returns <code>game:GetService(index)</code>.)</p>
+  <h1>Anti</h1>
+
+<p>This table contains all server-side anti-exploit related functions/variables. They can be accessed via server.Anti</p>
+<h2 id="clienttimeoutlimit">ClientTimeoutLimit<a class="headerlink" href="#clienttimeoutlimit" title="Permanent link">&para;</a></h2>
+<p>Default: 120
+How long a player's client can 'go dark' before the player is kicked from the game. </p>
+<h2 id="removeplayer-player-object-reason-optional-string">RemovePlayer (Player (Object), Reason (Optional String))<a class="headerlink" href="#removeplayer-player-object-reason-optional-string" title="Permanent link">&para;</a></h2>
+<p>Removes 'Player' for 'Reason'</p>
+<h2 id="checkallclients">CheckAllClients ()<a class="headerlink" href="#checkallclients" title="Permanent link">&para;</a></h2>
+<p>Checks if all clients are alive and responding. If client has not communicated for more than Anti.ClientTimeoutLimit the player the client belongs to will be removed from the server.</p>
+<h2 id="userspoofcheck-player-object">UserSpoofCheck (Player (Object))<a class="headerlink" href="#userspoofcheck-player-object" title="Permanent link">&para;</a></h2>
+<p>Attempts to detect username/userid spoofing.</p>
+<p>Returns: true if spoofing detected</p>
+<h2 id="sanitize-object-classlist-table">Sanitize (Object, ClassList (Table))<a class="headerlink" href="#sanitize-object-classlist-table" title="Permanent link">&para;</a></h2>
+<p>Searches 'Object' for children matching 'ClassList' and attempts to remove them if found. An example use case would be removing all scripts from a given hat.</p>
+<h2 id="isfake-player-object">isFake (Player (Object))<a class="headerlink" href="#isfake-player-object" title="Permanent link">&para;</a></h2>
+<p>Attempts to determine if a player object is a real player. </p>
+<p>Returns: true if "fake"</p>
+<h2 id="removeiffake-player-object">RemoveIfFake (Player (Object))<a class="headerlink" href="#removeiffake-player-object" title="Permanent link">&para;</a></h2>
+<p>Removes 'Player' if isFake returns true</p>
+<h2 id="findfakeplayers">FindFakePlayers ()<a class="headerlink" href="#findfakeplayers" title="Permanent link">&para;</a></h2>
+<p>Attempts to find and remove "fake" players.</p>
+<h2 id="getclassname-object">GetClassName (Object)<a class="headerlink" href="#getclassname-object" title="Permanent link">&para;</a></h2>
+<p>Attempts to get the class name of the given 'Object' regardless of whether or not it's RobloxLocked.</p>
+<h2 id="rlocked-object">RLocked (Object)<a class="headerlink" href="#rlocked-object" title="Permanent link">&para;</a></h2>
+<p>Returns true if 'Object' is RobloxLocked</p>
+<h2 id="objrlocked-object">ObjRLocked (Object)<a class="headerlink" href="#objrlocked-object" title="Permanent link">&para;</a></h2>
+<p>Identical to RLocked.</p>
+<h2 id="assignname">AssignName ()<a class="headerlink" href="#assignname" title="Permanent link">&para;</a></h2>
+<p>Returns a random 6 digit number.</p>
+<h2 id="detected-player-object-action-string-info-string">Detected (Player (Object), Action (String), Info (String))<a class="headerlink" href="#detected-player-object-action-string-info-string" title="Permanent link">&para;</a></h2>
+<p>Actions:
+Log - Only logs the event
+Kick - Logs the event and kicks the player
+Crash - Logs the event and attempts to crash the player in addition to kicking them.</p>
+<p>This function is called whenever a player is detected by the anti-exploit system. The player and 'Info' are logged and the specified action is performed. </p>
+<h2 id="checknameid-player-object">CheckNameID (Player (Object))<a class="headerlink" href="#checknameid-player-object" title="Permanent link">&para;</a></h2>
+<p>Another method to attempt to detect Name/UserId spoofing.</p>
 
 
 
@@ -880,10 +1084,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>

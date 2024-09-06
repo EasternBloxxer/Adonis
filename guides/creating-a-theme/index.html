@@ -8,24 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/Structure/">
+        <link rel="canonical" href="https://easternbloxxer.github.io/Adonis/guides/creating-a-theme/">
       
       
+        <link rel="prev" href="../../User-Manual-%26-Feature-Showcase/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+        <link rel="next" href="../../tables/shared/service/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>File Structure - Adonis Documentation</title>
+        <title>Creating a theme - Adonis Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-structure" class="md-skip">
+        <a href="#getting-started" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+    <a href="../.." title="Adonis Documentation" class="md-header__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Structure
+              Creating a theme
             
           </span>
         </div>
@@ -219,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
+    <a href="../.." title="Adonis Documentation" class="md-nav__button md-logo" aria-label="Adonis Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -249,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -269,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Manual-%26-Feature-Showcase/" class="md-nav__link">
+      <a href="../../User-Manual-%26-Feature-Showcase/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,17 +290,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -310,7 +316,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Guides
@@ -321,10 +327,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../guides/creating-a-theme/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -333,6 +348,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -422,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/shared/service/" class="md-nav__link">
+      <a href="../../tables/shared/service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/admin/" class="md-nav__link">
+      <a href="../../tables/server/admin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/anti/" class="md-nav__link">
+      <a href="../../tables/server/anti/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/commands/" class="md-nav__link">
+      <a href="../../tables/server/commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/core/" class="md-nav__link">
+      <a href="../../tables/server/core/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/functions/" class="md-nav__link">
+      <a href="../../tables/server/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/logs/" class="md-nav__link">
+      <a href="../../tables/server/logs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -612,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/process/" class="md-nav__link">
+      <a href="../../tables/server/process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tables/server/remote/" class="md-nav__link">
+      <a href="../../tables/server/remote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,98 +698,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#core" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server-load-order" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server Load Order:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#client-load-order" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client Load Order:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dependencies
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    <span class="md-ellipsis">
-      Plugins
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Main Scripts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Main Scripts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -790,50 +714,42 @@
   
 
 
-<h1 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h1>
-<p>The internal file structure of both Adonis's client and server can be broken down into four main parts:</p>
-<h2 id="core">Core<a class="headerlink" href="#core" title="Permanent link">&para;</a></h2>
-<p>This folder contains modules essential to the script's functionality. When Adonis starts, all modules within the core folder are loaded in a specific order. These modules must be loaded, in order, before the script can start doing anything. </p>
-<h3 id="server-load-order">Server Load Order:<a class="headerlink" href="#server-load-order" title="Permanent link">&para;</a></h3>
+<h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>In order to create a theme, you must have the Adonis Loader inside your game. You will also need to have access to the Adonis MainModule, but you do not need to keep this.</p>
+<h1 id="part-1">Part 1<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h1>
+<h2 id="copying-the-theme">Copying the theme<a class="headerlink" href="#copying-the-theme" title="Permanent link">&para;</a></h2>
+<p>Go to the temporary Adonis MainModule copy and go to <code>MainModule &gt; Client &gt; UI</code>. This will allow you to see all the UI themes that Adonis uses. Select whichever one it is that you would like to base your new theme on! In our example, we will use Unity.
+<img alt="image" src="https://github.com/Epix-Incorporated/Adonis/assets/64012878/493a2b83-5769-444b-90a4-6fc0832828fa" /></p>
+<h2 id="transferring-the-theme">Transferring the theme<a class="headerlink" href="#transferring-the-theme" title="Permanent link">&para;</a></h2>
+<p>Copy the theme you wish to base your new theme on and paste it in your loader at: <code>Adonis_Loader &gt; Config &gt; Themes</code>. You can now delete MainModule if you wish.
+<img alt="image" src="https://github.com/Epix-Incorporated/Adonis/assets/64012878/84fc9794-cf55-4a06-952d-9e79bead63bb" /></p>
+<hr />
+<h1 id="part-2">Part 2<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h1>
+<h2 id="setting-up-your-new-theme">Setting up your new theme<a class="headerlink" href="#setting-up-your-new-theme" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Service</li>
-<li>Logs</li>
-<li>Variables</li>
-<li>Core</li>
-<li>Remote</li>
-<li>Functions</li>
-<li>Process</li>
-<li>Admin</li>
-<li>HTTP</li>
-<li>Anti</li>
-<li>Commands</li>
+<li>Now you've successfully copied your theme over to your loader, you can start setting it up. Rename the theme to whatever it is you wish for it to be called. In this guide we will call it <code>ExampleTheme</code>.</li>
+<li>Now check that your theme has a StringValue inside called <code>Base_Theme</code>. If it doesn't, create it! This is the theme that Adonis will use if it cannot find a specific GUI. In our example we will set this to Aero.</li>
+<li>You've successfully installed the new theme! You can now select it in the menu. However, at the moment it is the exact same as another theme.</li>
 </ol>
-<h3 id="client-load-order">Client Load Order:<a class="headerlink" href="#client-load-order" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Service </li>
-<li>Variables</li>
-<li>UI</li>
-<li>Core</li>
-<li>Remote</li>
-<li>Functions</li>
-<li>Process</li>
-<li>Anti</li>
-</ol>
-<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>All dependencies of the client or server are contained within the respective "Dependencies" folder. This can include pre-made scripts and UI elements.</p>
-<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
-<p>The "Plugins" folders specific non-essential modules to be loaded. The server will automatically populate the client's Plugins folder if user defined client plugins are present in Loader &gt; Config &gt; Plugins</p>
-<h2 id="main-scripts">Main Scripts<a class="headerlink" href="#main-scripts" title="Permanent link">&para;</a></h2>
-<h3 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h3>
-<p>Handles the server-side loading process.</p>
-<h3 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h3>
-<p>Handles the client-side loading process.</p>
-<h1 id="code-structure">Code Structure<a class="headerlink" href="#code-structure" title="Permanent link">&para;</a></h1>
-<p>Adonis has three main tables that nearly all variables, functions, settings, objects, and folders, can be accessed from. </p>
-<h2 id="server-client">"server" &amp; "client"<a class="headerlink" href="#server-client" title="Permanent link">&para;</a></h2>
-<p>The "server" and "client" variables are tables containing everything related to Adonis's functionality. This includes any tables, functions, and variables added by loaded modules.</p>
-<h2 id="service">service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
-<p>The "service" metatable is a variable unique to Adonis and it's modules that provides many functions and services used throughout both the client and server. Within the service metatable are functions to handle anything from task creation and tracking to object deletion. If the index requested is not found within the service table, it will return a game service matching the index if it can. (Specifically, it just returns <code>game:GetService(index)</code>.)</p>
+<h2 id="creating-your-new-theme">Creating your new theme<a class="headerlink" href="#creating-your-new-theme" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Now it's time to customise your new theme. You can delete any GUIs you don't want to customise, and Adonis will automatically use the Base_Theme for these cases.</li>
+<li>In this example, we will turn the colour of the UI into red and change the font to Source Sans Pro. </li>
+<li>
+<ul>
+<li>To do this, we will go to <code>ExampleTheme &gt; Window &gt; Drag</code> and change the FontFace from Ubuntu to Source Sans Pro. Then we will go into Drag and change the background frame to Red.</li>
+</ul>
+</li>
+<li>You can edit the UI further. If you wish to see the changes you are making, drag the ScreenGui into StarterGui. Just remember to put it back into the theme folder when you're done editing!</li>
+<li>Additionally, you can also edit the UI code to include new features or change existing ones, such as click sounds.</li>
+<li>
+<ul>
+<li>Note that some UIs do not have ScreenGuis by default (such as Notifications/Hints)- this is intentional and you will have to add a ScreenGui to see these in StarterGui.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Congratulations! Just publish the game and you've successfully made an Adonis theme. If you have any queries, or would like to see a different guide, just ask in our communications server.</p>
 
 
 
@@ -880,10 +796,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
