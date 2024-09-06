@@ -2,7 +2,22 @@ Contains various server-specific miscellaneous functions.
 
 **ℹ️ This page is currently incomplete.**
 
-### PlayerFinders
+
+## AddJoinFilter (Name (string), Function (function))
+Adds the given function as a join filter. Will error if a joinfilter with this name already exists
+```lua
+	Functions.AddJoinFilter("No_bandits",function(Player:Player, PlayerData)
+		if Player.Name == "SimulprodBandit" then
+			return false, "Simulprod Bandit" -- second argument is the reason the player gets kicked
+		end;
+
+		return true;
+	end);
+```
+## AddJoinFilter (Name (string))
+Removes the given joinfilter.
+
+## PlayerFinders
 
 These are used when ``service.GetPlayers`` is called to search for players based on the user's input.
 The default built-in player finders (at the time of writing this) can be found below to be used as examples:
