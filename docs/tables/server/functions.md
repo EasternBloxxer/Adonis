@@ -14,7 +14,7 @@ Adds the given function as a join filter. Will error if a joinfilter with this n
 		return true;
 	end);
 ```
-## AddJoinFilter (Name (string))
+## RemoveJoinFilter (Name (string))
 Removes the given joinfilter.
 
 ## PlayerFinders
