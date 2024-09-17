@@ -4,7 +4,7 @@ Adonis is a community-maintained server management and moderation system created
 
 👉 Refer to the side panel for specific sections/information.
 
-📘 **User Manual:** https://github.com/Epix-Incorporated/Adonis/wiki/User-Manual-&-Feature-Showcase
+📘 **User Manual:** [User Manual & Feature Showcase](User-Manual-&-Feature-Showcase.md)
 
 Documentation is currently work-in-progress.
 
