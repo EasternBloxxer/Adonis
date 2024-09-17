@@ -2,7 +2,7 @@ name: rojo
  
 on:
   push:
-    branches: [master]
+    branches: [master, WindowQoL]
     tags: 
       - v**
   pull_request:
