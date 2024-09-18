@@ -1,6 +1,6 @@
 {
-    "$className": "ScreenGui",
-    "$properties": {
+    "ClassName": "ScreenGui",
+    "Properties": {
         "Name": "Window"
     }
 }
