@@ -23,14 +23,25 @@ return function(Vargs, env)
 				local cmdCount = 0
 
 				for _, cmd in Admin.SearchCommands(plr, "all") do
+					local cmdAliases = table.create(#cmd.Commands)
+
 					if cmd.Hidden or cmd.Disabled then
 						continue
 					end
 
+					for _,alias in cmd.Commands do
+						if #cmdAliases >= 4 and (#cmd.Commands - #cmdAliases) ~= 0 then
+							table.insert(cmdAliases, `and {#cmd.Commands - #cmdAliases} more...`)	
+							break
+						end
+					end
+					
+					table.remove(cmdAliases, 1)
+
 					local permissionDesc = Admin.FormatCommandAdminLevel(cmd)
 					table.insert(tab, {
 						Text = Admin.FormatCommand(cmd),
-						Desc = `[{permissionDesc}] {cmd.Description or "(No description provided)"}`,
+						Desc = `[{permissionDesc}] {if #cmdAliases >= 1 then `\nAliases: {table.concat(cmdAliases, ", ")}` else ""} \n\n{cmd.Description or "(No description provided)"}`,
 						Filter = permissionDesc
 					})
 					cmdCount += 1
@@ -113,11 +124,11 @@ return function(Vargs, env)
 		Notepad = {
 			Prefix = Settings.PlayerPrefix;
 			Commands = {"notepad", "stickynote"};
-			Args = {};
+			Args = {"text (optional)"};
 			Description = "Opens a textbox window for you to type into";
 			AdminLevel = "Players";
 			Function = function(plr: Player, args: {string})
-				Remote.MakeGui(plr, "Notepad", {})
+				Remote.MakeGui(plr, "Notepad", {Text = args[1]})
 			end
 		};
 
@@ -179,7 +190,7 @@ return function(Vargs, env)
 			Args = {"num m", "num n"};
 			Description = "Generates a number using Lua's math.random";
 			AdminLevel = "Players";
-			Function = function(plr: Player, args: {string})
+			Function = function(plr: Player, args: {any})
 				assert((not args[1]) or tonumber(args[1]), "Argument(s) provided must be numbers")
 				assert((not args[2]) or tonumber(args[2]), "Arguments provided must be numbers")
 
@@ -214,12 +225,14 @@ return function(Vargs, env)
 				for i, bc in brickColorNames do
 					bc = BrickColor.new(bc)
 					table.insert(children, {
-						Class = "TextLabel";
+						Class = "TextBox";
 						Size = UDim2.new(1, -10, 0, 30);
 						Position = UDim2.new(0, 5, 0, 30*(i-1));
 						BackgroundTransparency = 1;
 						TextXAlignment = "Left";
 						Text = `  {bc.Name}`;
+						TextEditable = false;
+						ClearTextOnFocus = false;
 						ToolTip = string.format("RGB: %d, %d, %d | Num: %d", bc.r*255, bc.g*255, bc.b*255, bc.Number);
 						ZIndex = 11;
 						Children = {
@@ -252,15 +265,11 @@ return function(Vargs, env)
 			Description = "Shows you a list of Roblox materials for reference";
 			AdminLevel = "Players";
 			Function = function(plr: Player, args: {string})
-				local mats = {
-					"Brick", "Cobblestone", "Concrete", "CorrodedMetal", "DiamondPlate", "Fabric", "Foil", "ForceField", "Glass", "Granite",
-					"Grass", "Ice", "Marble", "Metal", "Neon", "Pebble", "Plastic", "Slate", "Sand", "SmoothPlastic", "Wood", "WoodPlanks",
-					"Rock", "Glacier", "Snow", "Sandstone", "Mud", "Basalt", "Ground", "CrackedLava", "Asphalt", "LeafyGrass", "Salt", "Limestone", "Pavement"
-				}
+				local mats = Enum.Material:GetEnumItems()
 				for i, mat in mats do
-					mats[i] = {Text = mat; Desc = `Enum value: {Enum.Material[mat].Value}`}
+					mats[i] = {Text = mat.Name; Desc = `Enum value: {mat.Value}`}
 				end
-				Remote.MakeGui(plr, "List", {Title = "Materials"; Tab = mats;})
+				Remote.MakeGui(plr, "List", {Title = "Materials"; Tab = mats; TextSelectable = true;})
 			end
 		};
 
@@ -432,7 +441,7 @@ return function(Vargs, env)
 			NoStudio = true; -- Commands which cannot be used in Roblox Studio (e.g. commands which use TeleportService)
 			AdminLevel = "Players";
 			Function = function(plr: Player, args: {string})
-				assert(#(service.Players:GetPlayers()) < service.Players.MaxPlayers or not Settings.DisableRejoinAtMaxPlayers, "Cannot rejoin while server is at max capacity.")
+				assert(#(service.Players:GetPlayers()) < service.Players.MaxPlayers or not Variables.DisableRejoinAtMaxPlayers, "Cannot rejoin while server is at max capacity.")
 				service.TeleportService:TeleportAsync(game.PlaceId, {plr}, service.New("TeleportOptions", {
 					ServerInstanceId = game.JobId
 				}))
@@ -453,12 +462,12 @@ return function(Vargs, env)
 				local UserId = Functions.GetUserIdFromNameAsync(args[1])
 				if UserId then
 					local success, samePlace, errorMessage, placeId, jobId = pcall(service.TeleportService.GetPlayerPlaceInstanceAsync, service.TeleportService, UserId)
-					
+
 					if success then
 						if samePlace then
 							error("You're already in this server!")
 						end
-				
+
 						if placeId and jobId then
 							service.TeleportService:TeleportAsync(placeId, {plr}, service.New("TeleportOptions", {
 								ServerInstanceId = jobId
@@ -889,6 +898,7 @@ return function(Vargs, env)
 				for _, v: Player in players do
 					task.defer(function()
 						local gameData
+						local elevated = plr == v or elevated
 
 						if elevated then
 							local level, rank = Admin.GetLevel(v)
@@ -929,6 +939,7 @@ return function(Vargs, env)
 							IsServerOwner = v.UserId == game.PrivateServerOwnerId;
 							CmdPrefix = Settings.Prefix;
 							CmdSplitKey = Settings.SplitKey;
+							OnlineFriends = Remote.Get(v, "Function", "GetFriendsOnline");
 						})
 					end)
 				end
@@ -971,8 +982,9 @@ return function(Vargs, env)
 						ObjectCount = #Variables.Objects;
 						CameraCount = #Variables.Cameras;
 						NilPlayerCount = nilPlayers;
-						HttpEnabled = HTTP.CheckHttp();
+						HttpEnabled = HTTP.HttpEnabled;
 						LoadstringEnabled = HTTP.LoadstringEnabled;
+						ServerSpeed = workspace:GetRealPhysicsFPS();
 					}
 				end
 
@@ -982,7 +994,7 @@ return function(Vargs, env)
 				local elevated = Admin.CheckAdmin(plr)
 
 				local serverInfo = select(2, xpcall(function()
-					local res = Variables.IPInfo or service.HttpService:JSONDecode(service.HttpService:GetAsync("https://ipinfo.io/json"))
+					local res = Variables.IPInfo or service.HttpService:JSONDecode(service.HttpService:GetAsync(Variables.IPInfoUrl))
 					if not Variables.IPInfo then
 						Variables.IPInfo = res
 					end
@@ -1002,6 +1014,7 @@ return function(Vargs, env)
 					PrivateServerId = game.PrivateServerId;
 					PrivateServerOwnerId = game.PrivateServerOwnerId;
 					ServerStartTime = server.ServerStartTime;
+					ServerSpeed = workspace:GetRealPhysicsFPS();
 					ServerAge = service.FormatTime(os.time() - server.ServerStartTime);
 					ServerInternetInfo = serverInfo;
 					Refreshables = Logs.ListUpdaters.ServerDetails(plr);
@@ -1174,6 +1187,7 @@ return function(Vargs, env)
 				service.MarketplaceService:PromptPurchase(plr, assetId, false)
 			end
 		};
+
 		Coordinates = {
 			Prefix = Settings.PlayerPrefix;
 			Commands = {"coordinates", "coords", "position"};
@@ -1207,6 +1221,19 @@ return function(Vargs, env)
 					Name = guiName;
 				})
 			end;
+		};
+
+		Wait = {
+			Prefix = Settings.PlayerPrefix;
+			Commands = {"wait"};
+			Args = {"time"};
+			Description = "Waits for the desired amount of time in seconds. Only works with batch commands";
+			AdminLevel = -math.huge;
+			Function = function(plr: Player, args: {string})
+				task.wait(tonumber(args[1]) or 0)
+
+				return args
+			end
 		};
 	};
 end

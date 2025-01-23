@@ -49,8 +49,15 @@ return function(Vargs, GetEnv)
 
 		RemovePlayer = function(p, info)
 			info = tostring(info) or "No Reason Given"
-
-			pcall(function() service.UnWrap(p):Kick(`:: Adonis Anti Cheat :: {info}`) end)
+			
+			if service.RunService:IsStudio() then
+				warn(`:: Adonis Anti Cheat :: Anticheat triggered for {p.Name}, not kicking because in studio; {info}`)
+				return;
+			end
+			
+			pcall(function()
+				service.UnWrap(p):Kick(`:: Adonis Anti Cheat :: {info}`)
+			end)
 
 			task.wait(1)
 
@@ -180,7 +187,7 @@ return function(Vargs, GetEnv)
 
 			if Settings.AENotifs == true or Settings.ExploitNotifications == true then -- AENotifs for old loaders
 				local debounceIndex = `{action}{player}{info}`
-				if os.clock() < antiNotificationResetTick then
+				if os.clock() > antiNotificationResetTick then
 					antiNotificationDebounce = {}
 					antiNotificationResetTick = os.clock() + 60
 				end
@@ -193,6 +200,8 @@ return function(Vargs, GetEnv)
 				then
 					return
 				end
+
+				antiNotificationDebounce[debounceIndex] += 1
 
 				for _, plr in service.Players:GetPlayers() do
 					if Admin.GetLevel(plr) >= Settings.Ranks.Moderators.Level then

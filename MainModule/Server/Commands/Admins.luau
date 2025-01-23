@@ -12,7 +12,6 @@ return function(Vargs, env)
 	local Routine = env.Routine
 
 	return {
-
 		SetRank = {
 			Prefix = Settings.Prefix;
 			Commands = {"setrank", "permrank", "permsetrank"};
@@ -335,7 +334,7 @@ return function(Vargs, env)
 			AdminLevel = "Admins";
 			Function = function(plr: Player, args: {string})
 				local arg = args[1] and string.lower(args[1])
-				Functions.LogAdminAction(plr, "Server Lock", "Server is now " .. (arg == "on" or arg == "true" and "locked" or "unlocked"), "")
+				Functions.LogAdminAction(plr, "Server Lock", "Server is now " .. (if (arg == "on" or arg == "true") then "locked" else "unlocked"), "")
 				if (not arg and Variables.ServerLock ~= true) or arg == "on" or arg == "true" then
 					Variables.ServerLock = true
 					Functions.Hint("Server Locked", service.Players:GetPlayers())
@@ -349,8 +348,8 @@ return function(Vargs, env)
 		Whitelist = {
 			Prefix = Settings.Prefix;
 			Commands = {"wl", "enablewhitelist", "whitelist"};
-			Args = {"on/off/add/remove/list", "optional player"};
-			Description = "Enables/disables the whitelist; :wl username to add them to the whitelist";
+			Args = {"on/off/add/remove/list/clear", "optional player"};
+			Description = "Enables/disables the server whitelist; :wl username to add them to the whitelist";
 			AdminLevel = "Admins";
 			Function = function(plr: Player, args: {string})
 				local sub = string.lower(args[1])
@@ -400,8 +399,11 @@ return function(Vargs, env)
 						end
 					end
 					Remote.MakeGui(plr, "List", {Title = "Whitelist List"; Tab = Tab;})
+				elseif sub == "clear" then
+					Variables.Whitelist.Lists.Settings = {}
+					Functions.Hint("Cleared server whitelist", service.Players:GetPlayers())
 				else
-					error("Invalid subcommand (on/off/add/remove/list)")
+					error("Invalid subcommand (on/off/add/remove/list/clear)")
 				end
 			end
 		};
@@ -555,13 +557,33 @@ return function(Vargs, env)
 			Description = "Gives the target player(s) F3X building tools.";
 			AdminLevel = "Admins";
 			Function = function(plr: Player, args: {string})
-				local F3X = require(580330877)()
-				do
-					service.New("StringValue", {
-						Name = `__ADONIS_VARIABLES_{Variables.CodeName}`,
-						Parent = F3X
-					})
-				end
+				local F3X = Deps.Assets:FindFirstChild("F3X Deps") and (function(deps)
+					local F3X = service.New("Tool", {
+						GripPos = Vector3.new(0, 0, 0.4),
+						CanBeDropped = false,
+						ManualActivationOnly = false,
+						ToolTip = "Building Tools by F3X",
+						Name = "Building Tools"
+					}, true)
+					local clonedDeps = deps:Clone()
+
+					for _, obj in clonedDeps:GetDescendants() do
+						if obj:IsA("BaseScript") then
+							obj.Disabled = false
+						end
+					end
+					for _, obj in clonedDeps:GetChildren() do
+						obj.Parent = F3X
+					end
+
+					clonedDeps:Destroy()
+					return F3X
+				end)(Deps.Assets:FindFirstChild("F3X Deps")) or Variables.F3XCached and Variables.F3XCached:Clone() or require(580330877)()
+				Variables.F3XCached = Variables.F3XCached or F3X:Clone()
+				service.New("StringValue", {
+					Name = `__ADONIS_VARIABLES_{Variables.CodeName}`,
+					Parent = F3X
+				})
 
 				for _, v in service.GetPlayers(plr, args[1]) do
 					local Backpack = v:FindFirstChildOfClass("Backpack")
@@ -570,6 +592,8 @@ return function(Vargs, env)
 						F3X:Clone().Parent = Backpack
 					end
 				end
+
+				F3X:Destroy()
 			end
 		};
 
@@ -577,7 +601,7 @@ return function(Vargs, env)
 			Prefix = Settings.Prefix;
 			Commands = {"insert", "ins"};
 			Args = {"id"};
-			Description = "Inserts whatever object belongs to the ID you supply, the object must be in the place owner's or ROBLOX's inventory";
+			Description = "Inserts whatever object belongs to the ID you supply, the object must be in the place owner's or Roblox's inventory";
 			AdminLevel = "Admins";
 			Function = function(plr: Player, args: {string})
 				local id = string.lower(args[1])
@@ -655,6 +679,12 @@ return function(Vargs, env)
 			Function = function(plr: Player, args: {string})
 				local teamName = assert(args[1], "Missing team name (argument #1)")
 				local teamColor = Functions.ParseBrickColor(args[2])
+
+				if service.Teams:FindFirstChild(teamName) then
+					Functions.Hint(string.format("Team '%s' already exists!", teamName), {plr})
+					return;
+				end
+				
 				service.New("Team", {
 					Parent = service.Teams;
 					Name = teamName;
@@ -713,6 +743,7 @@ return function(Vargs, env)
 
 				Variables.RestoringMap = true
 				Functions.Hint("Restoring Map...", service.Players:GetPlayers())
+				workspace.Gravity = Variables.OriginalGravity
 
 				for _, obj in workspace:GetChildren() do
 					if obj.ClassName ~= "Terrain" and not service.Players:GetPlayerFromCharacter(obj) then
@@ -738,6 +769,7 @@ return function(Vargs, env)
 
 				task.wait()
 
+				Admin.RunCommand(`{Settings.Prefix}fixlighting`)
 				Admin.RunCommand(`{Settings.Prefix}respawn`, "all")
 				Variables.RestoringMap = false
 				Functions.Hint('Map Restore Complete.',service.Players:GetPlayers())
@@ -776,6 +808,8 @@ return function(Vargs, env)
 
 				if string.lower(class) == "script" or string.lower(class) == "s" then
 					class = "Script"
+				elseif string.lower(class) == "clientscript" or string.lower(class) == "cs" then
+					class = "ClientScript"
 					--elseif string.lower(class) == "localscript" or string.lower(class) == "ls" then
 					--	class = "LocalScript"
 				else
@@ -943,16 +977,7 @@ return function(Vargs, env)
 			AdminLevel = "Admins";
 			NoFilter = true;
 			Function = function(plr: Player, args: {string})
-				local bytecode = Core.Bytecode(assert(args[1], "Missing Script code (argument #2)"))
-				assert(string.find(bytecode, "\27Lua"), `LocalScript unable to be created: {string.gsub(bytecode, "Loadstring%.LuaX:%d+:", "")}`)
-
-				local cl = Core.NewScript("LocalScript", `script.Parent = game:GetService('Players').LocalPlayer.PlayerScripts; {args[1]}`, true)
-				cl.Name = "[Adonis] LocalScript"
-				cl.Disabled = true
-				cl.Parent = plr:FindFirstChildOfClass("Backpack")
-				task.wait()
-				cl.Disabled = false
-				Functions.Hint("Ran LocalScript on your client", {plr})
+				Commands.LoadLocalScript.Function(plr, {`@{plr.Name}`, args[1]})
 			end
 		};
 
@@ -970,14 +995,26 @@ return function(Vargs, env)
 				assert(string.find(bytecode, "\27Lua"), `LocalScript unable to be created: {string.gsub(bytecode, "Loadstring%.LuaX:%d+:", "")}`)
 
 				local new = Core.NewScript("LocalScript", `script.Parent = game:GetService('Players').LocalPlayer.PlayerScripts; {args[2]}`, true)
-				for i, v in service.GetPlayers(plr, args[1]) do
+				local function cloneScript(targetPlayer)
+					local playerName = if targetPlayer == plr then "your client" else service.FormatPlayer(targetPlayer)
+
+					local backpack = targetPlayer:FindFirstChildOfClass("Backpack")
+					if not backpack then
+						Functions.Hint(`Couldn't run LocalScript on {playerName} (Backpack missing?)`, {plr})
+						return
+					end
+
 					local cl = new:Clone()
 					cl.Name = "[Adonis] LocalScript"
 					cl.Disabled = true
-					cl.Parent = v:FindFirstChildOfClass("Backpack")
-					task.wait()
+					cl.Parent = targetPlayer:FindFirstChildOfClass("Backpack")
+					task.wait(.1)
 					cl.Disabled = false
-					Functions.Hint(`Ran LocalScript on {service.FormatPlayer(v)}`, {plr})
+					Functions.Hint(`Ran LocalScript on {playerName}`, {plr})
+				end
+
+				for i, v in service.GetPlayers(plr, args[1]) do
+					task.spawn(cloneScript, v)
 				end
 			end
 		};
@@ -1017,7 +1054,7 @@ return function(Vargs, env)
 
 				for _,v : Instance in service.StarterGui:GetChildren() do
 					if v:IsA("LocalScript") and v.Name:find("[Adonis]") then
-						table.insert(result, v.Name:gsub("%[Adonis%] ", ""))
+						table.insert(result, (v.Name:gsub("%[Adonis%] ", "")))
 					end
 				end
 
@@ -1072,7 +1109,7 @@ return function(Vargs, env)
 
 		DeleteNote = {
 			Prefix = Settings.Prefix;
-			Commands = {"removenote", "remnote", "deletenote"};
+			Commands = {"removenote", "remnote", "deletenote", "clearnote"};
 			Args = {"player", "note (specify 'all' to delete all notes)"};
 			Description = "Removes a note on the target player(s)";
 			AdminLevel = "Admins";
@@ -1259,6 +1296,55 @@ return function(Vargs, env)
 			end
 		};
 
+		CustomKick = {
+			Prefix = Settings.Prefix;
+			Commands = {"ckick", "customkick", "customcrash"};
+			Args = {"player", "title", "message"};
+			Description = "Disconnects (crashes) the target player with a custom Roblox dialog";
+			AdminLevel = "Admins";
+			Function = function(plr: Player, args: {string})
+				assert(args[3], "Argument(s) missing or nil")
+
+				local title = service.BroadcastFilter(args[2], plr)
+				assert(title == args[2], "Title was filtered: "..title)
+
+				local msg = service.BroadcastFilter(args[3], plr)
+				assert(msg == args[3], "Message was filtered: "..msg)
+
+				for _, v in service.GetPlayers(plr, args[1], {
+					IsKicking = true;
+					NoFakePlayer = false;
+					})
+				do
+					if not Admin.CheckAuthority(plr, v, "custom-kick") then
+						continue
+					end
+
+					local plrgui = v:FindFirstChildOfClass("PlayerGui")
+					if not plrgui then
+						Remote.MakeGui(plr, "Output", {
+							Message = `Failed to custom-kick {service.FormatPlayer(v)} (PlayerGui not found)`;
+						})
+						continue
+					end
+
+					local promptGui = Deps.Assets.RobloxPromptGui:Clone()
+					promptGui.promptOverlay.ErrorPrompt.TitleFrame.ErrorTitle.Text = title
+					promptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text = msg
+					promptGui.Parent = plrgui
+
+					Remote.Send(v, "Function", "CustomKick")
+					task.delay(5, function()
+						if v.Parent == service.Players then
+							-- make sure they're really kicked
+							v:Kick("Unexpected Error")
+						end
+					end)
+					Functions.Hint(`Custom-kicking {service.FormatPlayer(v)}`, {plr})
+				end
+			end
+		};
+
 		Shutdown = {
 			Prefix = Settings.Prefix;
 			Commands = {"shutdown"};
@@ -1276,7 +1362,7 @@ return function(Vargs, env)
 						})
 
 						local nlogs = #logs
-						if nlogs > 1000 then
+						if nlogs > Logs.OldCommandLogsLimit then
 							table.remove(logs, nlogs)
 						end
 
@@ -1322,7 +1408,7 @@ return function(Vargs, env)
 					UseFakePlayer = true;
 					})
 				do
-					if Admin.RemoveBan(v.Name) then
+					if Admin.RemoveBan(v) then
 						Functions.LogAdminAction(plr, "Unban", v.Name, "User has been unbanned.")
 						Functions.Hint(`{service.FormatPlayer(v, true)} has been unbanned`, {plr})
 					else
@@ -1330,50 +1416,6 @@ return function(Vargs, env)
 					end
 				end
 			end
-		};
-
-		TrelloBan = {
-			Prefix = Settings.Prefix;
-			Commands = {"trelloban"};
-			Args = {"player/user", "reason"};
-			Description = "Adds a user to the Trello ban list (Trello needs to be configured)";
-			Filter = true;
-			CrossServerDenied = true;
-			TrelloRequired = true;
-			AdminLevel = "Admins";
-			Function = function(plr: Player, args: {string}, data: {any})
-				local trello = HTTP.Trello.API
-				if not Settings.Trello_Enabled or trello == nil then
-					Functions.Notification("Trelloban", "Trello has not been configured.", {plr}, 10, "MatIcon://Description")
-					return
-				end
-
-				local lists = trello.getLists(Settings.Trello_Primary)
-				local list = trello.getListObj(lists, {"Banlist", "Ban List", "Bans"})
-
-				local level = data.PlayerData.Level
-				local reason = string.format("Administrator: %s\nReason: %s", service.FormatPlayer(plr), (args[2] or "N/A"))
-
-				for _, v in service.GetPlayers(plr, args[1], {
-					IsKicking = true;
-					NoFakePlayer = false;
-					})
-				do
-					if level > Admin.GetLevel(v) then
-						trello.makeCard(
-							list.id,
-							string.format("%s:%d", (v and tostring(v.Name) or tostring(v)), v.UserId),
-							reason
-						)
-
-						pcall(function() v:Kick(reason) end)
-						Functions.LogAdminAction(plr, "Trello Ban", v.Name, `Reason: {args[2] or "N/A"}`)
-						Functions.Notification("Notification", `Trello-banned {service.FormatPlayer(v, true)}`, {plr}, 5, "MatIcons://Gavel")
-					end
-				end
-
-				HTTP.Trello.Update()
-			end;
 		};
 
 		BanMenu = {
