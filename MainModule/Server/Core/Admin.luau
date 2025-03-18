@@ -428,14 +428,15 @@ return function(Vargs, GetEnv)
 			local pData = data or Core.GetPlayer(p)
 			if pData.Client.HideChatCommands then
 				if Admin.BlankPrefix and
-					(string.sub(message,1,1) ~= Settings.Prefix or string.sub(message,1,1) ~= Settings.PlayerPrefix) then
+
+					(string.sub(message,1,1) ~= Settings.Prefix or string.sub(message,1,1) ~= Settings.PlayerPrefix or (type(Settings.Prefix) == "table" and not table.find(Settings.Prefix, string.sub(message,1,1)))) then
 					local isCMD = Admin.GetCommand(message)
 					if isCMD then
 						return true
 					else
 						return false
 					end
-				elseif (string.sub(message,1,1) == Settings.Prefix or string.sub(message,1,1) == Settings.PlayerPrefix)
+				elseif (string.sub(message,1,1) == Settings.Prefix or string.sub(message,1,1) == Settings.PlayerPrefix or (type(Settings.Prefix) == "table" and table.find(Settings.Prefix, string.sub(message,1,1))))
 					and string.sub(message,2,2) ~= string.sub(message,1,1) then
 					return true;
 				end
@@ -1196,9 +1197,16 @@ return function(Vargs, GetEnv)
 			for ind, data in Commands do
 				if type(data) == "table" then
 					for i,cmd in data.Commands do
-						if data.Prefix == "" then Admin.BlankPrefix = true end
-						tempPrefix[data.Prefix] = true
-						tempTable[string.lower(data.Prefix..cmd)] = ind
+						if type(data.Prefix) ~= "table" and data.Prefix == "" then Admin.BlankPrefix = true end
+						if type(data.Prefix) == "table" then
+							for _,p in data.Prefix do
+								tempPrefix[p] = true
+								tempTable[string.lower(p..cmd)] = ind
+							end
+						else
+							tempPrefix[data.Prefix] = true
+							tempTable[string.lower(data.Prefix..cmd)] = ind
+						end
 					end
 				end
 			end
@@ -1235,13 +1243,27 @@ return function(Vargs, GetEnv)
 							end
 
 							for _, v in data.Commands do
-								if not blacklistedCommands["/"..data.Prefix..v] then
-									if not command1 then
-										command1 = "/"..data.Prefix..v
-									else
-										command2 = "/"..data.Prefix..v
+								if type(data.Prefix) == "table" then
+									for _, p in data.Prefix do
+										if not blacklistedCommands["/"..p..v] then
+											if not command1 then
+												command1 = "/"..p..v
+											else
+												command2 = "/"..p..v
+											end
+										end
 									end
+								else
+									if not blacklistedCommands["/"..data.Prefix..v] then
+										if not command1 then
+											command1 = "/"..data.Prefix..v
+										else
+											command2 = "/"..data.Prefix..v
+										end
+									end
+
 								end
+
 							end
 
 							if command1 then
@@ -1339,7 +1361,7 @@ return function(Vargs, GetEnv)
 
 		FormatCommand = function(command, cmdn)
 			return table.concat({
-				(command.Prefix or ""),
+				(if type(command.Prefix) == "table" then command.Prefix[1] else command.Prefix or ""),
 				tostring(command.Commands[cmdn or 1]),
 				#command.Args > 0 and Settings.SplitKey or "",
 				#command.Args > 0 and Admin.FormatCommandArguments(command) or ""
@@ -1379,7 +1401,7 @@ return function(Vargs, GetEnv)
 		--// Make it so you can't accidentally overwrite certain existing commands... resulting in being unable to add/edit/remove aliases (and other stuff)
 		CheckAliasBlacklist = function(alias)
 			local playerPrefix = Settings.PlayerPrefix;
-			local prefix = Settings.Prefix;
+			local prefix = Settings.Prefix
 			local blacklist = {
 				[`{playerPrefix}alias`] = true;
 				[`{playerPrefix}newalias`] = true;
