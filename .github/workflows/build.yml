@@ -2,7 +2,7 @@ name: rojo
  
 on:
   push:
-    branches: [master]
+    branches: [master,patch-8]
     tags: 
       - v**
   pull_request:
