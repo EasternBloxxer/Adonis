@@ -1,42 +1,11 @@
-client = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-log = nil
-
 --// Remote
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
-
-	local _G, game, script, getfenv, setfenv, workspace,
-	getmetatable, setmetatable, loadstring, coroutine,
-	rawequal, typeof, print, math, warn, error,  pcall,
-	xpcall, select, rawset, rawget, ipairs, pairs,
-	next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-	newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-	NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-	NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-	Vector3int16, require, table, type, wait,
-	Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay =
-		_G, game, script, getfenv, setfenv, workspace,
-	getmetatable, setmetatable, loadstring, coroutine,
-	rawequal, typeof, print, math, warn, error,  pcall,
-	xpcall, select, rawset, rawget, ipairs, pairs,
-	next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-	newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-	NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-	NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-	Vector3int16, require, table, type, wait,
-	Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay
 
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
-	local Anti, Core, Functions, Process, Remote, UI, Variables
+	local Anti, Core, Functions, Process, Remote, UI, Variables, log, logError
 	local function Init()
 		UI = client.UI;
 		Anti = client.Anti;
@@ -45,6 +14,8 @@ return function(Vargs, GetEnv)
 		Functions = client.Functions;
 		Process = client.Process;
 		Remote = client.Remote;
+		log = env.log;
+		logError = env.logError
 		Remote.NewDecrypt = function(str, key, cache) -- Bxor works both ways. May want to make a seperate function tho
 			return Remote.NewEncrypt(str, key, cache or Remote.NewDecodeCache)
 		end;

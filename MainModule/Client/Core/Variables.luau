@@ -1,42 +1,12 @@
-client = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
 --// Special Variables
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
-
-	local _G, game, script, getfenv, setfenv, workspace,
-		getmetatable, setmetatable, loadstring, coroutine,
-		rawequal, typeof, print, math, warn, error,  pcall,
-		xpcall, select, rawset, rawget, ipairs, pairs,
-		next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-		newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-		NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-		NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-		Vector3int16, require, table, type, wait,
-		Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay =
-		_G, game, script, getfenv, setfenv, workspace,
-		getmetatable, setmetatable, loadstring, coroutine,
-		rawequal, typeof, print, math, warn, error,  pcall,
-		xpcall, select, rawset, rawget, ipairs, pairs,
-		next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-		newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-		NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-		NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-		Vector3int16, require, table, type, wait,
-		Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay
 
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
 
-	local Anti, Core, Functions, Process, Remote, UI, Variables
+	local Anti, Core, Functions, Process, Remote, UI, Variables, Require
 	local function Init()
 		UI = client.UI;
 		Anti = client.Anti;
@@ -45,6 +15,7 @@ return function(Vargs, GetEnv)
 		Functions = client.Functions;
 		Process = client.Process;
 		Remote = client.Remote;
+		Require = env.require
 
 		Variables.Init = nil;
 	end
@@ -57,10 +28,6 @@ return function(Vargs, GetEnv)
 	local function RunLast()
 			Variables.RunLast = nil;
 	end
-
-	getfenv().client = nil
-	getfenv().service = nil
-	getfenv().script = nil
 
 	local atmosphere = service.Lighting:FindFirstChildWhichIsA("Atmosphere")
 
@@ -110,6 +77,6 @@ return function(Vargs, GetEnv)
 			Glare = atmosphere and atmosphere.Glare,
 			Haze = atmosphere and atmosphere.Haze,
 		};
-		KeycodeNames = require(client.Shared.KeycodeNames);
+		KeycodeNames = Require(client.Shared.KeycodeNames);
 	};
 end

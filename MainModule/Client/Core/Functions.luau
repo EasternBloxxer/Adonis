@@ -5,7 +5,7 @@ return function(Vargs, GetEnv)
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
-	local Anti, Core, Functions, Process, Remote, UI, Variables, Routine
+	local Anti, Core, Functions, Process, Remote, UI, Variables, Routine, Require, log
 	local function Init()
 		UI = client.UI;
 		Anti = client.Anti;
@@ -17,7 +17,7 @@ return function(Vargs, GetEnv)
 
 		Routine = env.Routine
 		log = env.log
-		require = env.require
+		Require = env.require
 
 		Functions.Init = nil;
 	end
@@ -1887,7 +1887,7 @@ return function(Vargs, GetEnv)
 			end
 		end;
 
-		SHA256 = require(client.Shared.HashLib).SHA256;
+		SHA256 = Require(client.Shared.HashLib).SHA256;
 
 		GetFriendsOnline = function(maxFriends)
 			return service.Players.LocalPlayer:GetFriendsOnline(maxFriends)
