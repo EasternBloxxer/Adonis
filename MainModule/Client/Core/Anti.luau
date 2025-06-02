@@ -1,16 +1,7 @@
 --# selene: allow(empty_loop)
-client = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
 --// Anti-Exploit
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local _G, game, script, getfenv, setfenv, workspace,
 	getmetatable, setmetatable, loadstring, coroutine,
@@ -224,7 +215,7 @@ return function(Vargs, GetEnv)
 
 			return false
 		end
-		
+
 		local function isMethamethodValid(metamethod)
 			if
 				not metamethod or

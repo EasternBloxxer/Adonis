@@ -1,42 +1,11 @@
-client = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-log = nil
-
---// Core
+--// Adonis Client Core
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
-
-	local _G, game, script, getfenv, setfenv, workspace,
-		getmetatable, setmetatable, loadstring, coroutine,
-		rawequal, typeof, print, math, warn, error,  pcall,
-		xpcall, select, rawset, rawget, ipairs, pairs,
-		next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-		newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-		NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-		NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-		Vector3int16, require, table, type, wait,
-		Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay =
-		_G, game, script, getfenv, setfenv, workspace,
-		getmetatable, setmetatable, loadstring, coroutine,
-		rawequal, typeof, print, math, warn, error,  pcall,
-		xpcall, select, rawset, rawget, ipairs, pairs,
-		next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-		newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-		NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-		NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-		Vector3int16, require, table, type, wait,
-		Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay
 
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
-	local Anti, Core, Functions, Process, Remote, UI, Variables
+	local Anti, Core, Functions, Process, Remote, UI, Variables, log, Pcall, Routine, require
 	local function Init(data)
 		UI = client.UI;
 		Anti = client.Anti;
@@ -51,6 +20,10 @@ return function(Vargs, GetEnv)
 		Core.MakeGui = UI.Make;
 		Core.GetGui = UI.Get;
 		Core.RemoveGui = UI.Remove;
+
+		Routine = env.Routine
+		log = env.log
+		require = env.require
 
 		if data.DebugMode == true then
 			Core.DebugMode = true
@@ -313,7 +286,7 @@ return function(Vargs, GetEnv)
 						end
 						return RealEnvResult, false
 					end
-				end	
+				end
 
 				local AdonisDebugAPIBindable = ReplicatedStorage:FindFirstChild("Adonis_Debug_API")
 				if AdonisDebugAPIBindable then
