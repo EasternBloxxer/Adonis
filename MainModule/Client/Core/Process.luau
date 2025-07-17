@@ -43,10 +43,6 @@ return function(Vargs, GetEnv)
 		Process.RunAfterLoaded = nil;
 	end
 
-	getfenv().client = nil
-	getfenv().service = nil
-	getfenv().script = nil
-
 	client.Process = {
 		Init = Init;
 		RunLast = RunLast;

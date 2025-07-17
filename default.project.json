@@ -16,7 +16,7 @@
 				"LICENSE": {
 					"$path": "LICENSE.luau"
 				},
-				
+
 				"Adonis_Loader": {
 					"$className": "Model",
 					"$path": "Loader",

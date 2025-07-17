@@ -5,7 +5,7 @@ return function(Vargs, GetEnv)
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
-	local Anti, Core, Functions, Process, Remote, UI, Variables, log, logError
+	local Anti, Core, Functions, Process, Remote, UI, Variables, log, logError, Pcall
 	local function Init()
 		UI = client.UI;
 		Anti = client.Anti;
@@ -16,6 +16,7 @@ return function(Vargs, GetEnv)
 		Remote = client.Remote;
 		log = env.log;
 		logError = env.logError
+		Pcall = env.Pcall;
 		Remote.NewDecrypt = function(str, key, cache) -- Bxor works both ways. May want to make a seperate function tho
 			return Remote.NewEncrypt(str, key, cache or Remote.NewDecodeCache)
 		end;
@@ -120,7 +121,7 @@ return function(Vargs, GetEnv)
 			end;
 
 			Function = function(args)
-				local func = client.Functions[args[1]]
+				local func = Functions[args[1]]
 				if func and type(func) == "function" then
 					return func(unpack(args, 2))
 				end
@@ -319,7 +320,7 @@ return function(Vargs, GetEnv)
 			end;
 
 			Function = function(args)
-				local func = client.Functions[args[1]]
+				local func = Functions[args[1]]
 				if func and type(func) == "function" then
 					Pcall(func,unpack(args,2))
 				end
