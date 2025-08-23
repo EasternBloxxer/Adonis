@@ -55,10 +55,6 @@ return function(Vargs, GetEnv)
 		Remote.RunLast = nil;
 	end
 
-	getfenv().client = nil
-	getfenv().service = nil
-	getfenv().script = nil
-
 	client.Remote = {
 		Init = Init;
 		RunLast = RunLast;

@@ -125,7 +125,7 @@ return function(Vargs, GetEnv)
 		end;
 
 		LoadBytecode = function(str, env)
-			return require(client.Shared.FiOne, true)(str, env)
+			return env.require(client.Shared.FiOne, true)(str, env)
 		end;
 
 		LoadCode = function(str, env)
@@ -173,7 +173,6 @@ return function(Vargs, GetEnv)
 
 			}
 
-			setfenv(1,setmetatable({}, {__metatable = getmetatable(getfenv())}))
 
 			local API_Specific = {
 				API_Specific = {
@@ -190,8 +189,6 @@ return function(Vargs, GetEnv)
 					local key = args[1]
 					local ind = args[2]
 					local targ
-
-					setfenv(1,setmetatable({}, {__metatable = getmetatable(getfenv())}))
 
 					if API_Specific[ind] then
 						targ = API_Specific[ind]

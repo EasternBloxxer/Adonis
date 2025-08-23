@@ -402,7 +402,7 @@ return function(Vargs, GetEnv)
 			end
 		end)
 
-		Routine(function()
+		env.Routine(function()
 			while true do
 				do
 					local source, line, argN, isVararg, name, closure = debug.info(Detected, "slanf")
