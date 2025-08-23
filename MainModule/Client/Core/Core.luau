@@ -5,7 +5,7 @@ return function(Vargs, GetEnv)
 	local script = script
 	local service = Vargs.Service
 	local client = Vargs.Client
-	local Anti, Core, Functions, Process, Remote, UI, Variables, log, Pcall, Routine, require
+	local Anti, Core, Functions, Process, Remote, UI, Variables, log, Pcall, Routine
 	local function Init(data)
 		UI = client.UI;
 		Anti = client.Anti;
@@ -23,8 +23,7 @@ return function(Vargs, GetEnv)
 
 		Routine = env.Routine
 		log = env.log
-		require = env.require
-		print(require(workspace:WaitForChild('ModuleScript'))())
+
 		if data.DebugMode == true then
 			Core.DebugMode = true
 		end
@@ -120,7 +119,7 @@ return function(Vargs, GetEnv)
 		DebugMode = client.DebugMode;
 
 		LoadPlugin = function(plugin)
-			local plug = require(plugin)
+			local plug = env.require(plugin)
 			local func = setfenv(plug,GetEnv(getfenv(plug)))
 			task.spawn(Pcall, func)
 		end;
