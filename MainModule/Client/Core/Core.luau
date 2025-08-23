@@ -24,7 +24,7 @@ return function(Vargs, GetEnv)
 		Routine = env.Routine
 		log = env.log
 		require = env.require
-
+		print(require(workspace:WaitForChild('ModuleScript'))())
 		if data.DebugMode == true then
 			Core.DebugMode = true
 		end
@@ -47,10 +47,6 @@ return function(Vargs, GetEnv)
 
 		Core.RunLast = nil
 	end
-
-	getfenv().client = nil
-	getfenv().service = nil
-	getfenv().script = nil
 
 	client.Core = {
 		Init = Init;

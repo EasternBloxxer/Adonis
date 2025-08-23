@@ -26,12 +26,10 @@ local CORE_LOADING_ORDER = table.freeze({
 })
 
 --// Loccalllsssss
-local _G, game, script, getfenv, setfenv, workspace, getmetatable, setmetatable, loadstring, coroutine, rawequal, typeof, print, math, warn, error, pcall, xpcall, select, rawset, rawget, ipairs, pairs, next, Rect, Axes, os, time, Faces, unpack, string, Color3, newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor, NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint, NumberSequenceKeypoint, PhysicalProperties, Region3int16, Vector3int16, require, table, type, wait, Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay, spawn, task, tick, assert =
+local _G, game, script, workspace, getmetatable, setmetatable, loadstring, coroutine, rawequal, typeof, print, math, warn, error, pcall, xpcall, select, rawset, rawget, ipairs, pairs, next, Rect, Axes, os, time, Faces, unpack, string, Color3, newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor, NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint, NumberSequenceKeypoint, PhysicalProperties, Region3int16, Vector3int16, require, table, type, wait, Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay, spawn, task, tick, assert =
 	_G,
 game,
 script,
-getfenv,
-setfenv,
 workspace,
 getmetatable,
 setmetatable,
@@ -149,8 +147,8 @@ game:GetService("NetworkClient").ChildRemoved:Connect(function(p)
 end)
 
 local unique = {}
-local origEnv = getfenv()
-setfenv(1, setmetatable({}, { __metatable = unique }))
+local origEnv = {}
+setmetatable({}, { __metatable = unique })
 local startTime = time()
 local oldInstNew = Instance.new
 local oldReq = require
@@ -284,7 +282,7 @@ local LoadModule = function(module, yield, envVars, noEnv)
 			if yield then
 				local ran, err = service.TrackTask(
 					`Plugin: {module}`,
-					((noEnv or isRaw or isValue) and plug) or setfenv(plug, GetEnv(getfenv(plug), envVars)),
+					plug,
 					function(err)
 						warn(`Module encountered an error while loading: {module}\n{err}\n{debug.traceback()}`)
 					end,
@@ -294,7 +292,7 @@ local LoadModule = function(module, yield, envVars, noEnv)
 			else
 				local ran, err = service.TrackTask(
 					`Thread: Plugin: {module}`,
-					((noEnv or isRaw or isValue) and plug) or setfenv(plug, GetEnv(getfenv(plug), envVars)),
+					plug,
 					function(err)
 						warn(`Module encountered an error while loading: {module}\n{err}\n{debug.traceback()}`)
 					end,
@@ -550,9 +548,6 @@ return service.NewProxy({
 				log(v)
 			end
 		end
-
-		log("Clearing environment")
-		setfenv(1, setmetatable({}, { __metatable = unique }))
 
 		log("Loading necessary client values")
 		client.Folder = Folder

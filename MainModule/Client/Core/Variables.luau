@@ -6,7 +6,7 @@ return function(Vargs, GetEnv)
 	local service = Vargs.Service
 	local client = Vargs.Client
 
-	local Anti, Core, Functions, Process, Remote, UI, Variables, Require
+	local Anti, Core, Functions, Process, Remote, UI, Variables;
 	local function Init()
 		UI = client.UI;
 		Anti = client.Anti;
@@ -15,7 +15,6 @@ return function(Vargs, GetEnv)
 		Functions = client.Functions;
 		Process = client.Process;
 		Remote = client.Remote;
-		Require = env.require
 
 		Variables.Init = nil;
 	end
@@ -77,6 +76,6 @@ return function(Vargs, GetEnv)
 			Glare = atmosphere and atmosphere.Glare,
 			Haze = atmosphere and atmosphere.Haze,
 		};
-		KeycodeNames = Require(client.Shared.KeycodeNames);
+		KeycodeNames = env.require(client.Shared.KeycodeNames);
 	};
 end
