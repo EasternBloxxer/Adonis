@@ -1,14 +1,6 @@
-server = nil
-service = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
 --// Special Variables
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local server = Vargs.Server;
 	local service = Vargs.Service;
@@ -97,7 +89,7 @@ return function(Vargs, GetEnv)
 						table.remove(tab, #tab)
 					end
 				end
-				
+
 				service.Events.LogAdded:Fire(Logs.TabToType(tab), log, tab)
 			end
 		end;

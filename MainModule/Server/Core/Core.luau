@@ -13,7 +13,6 @@ type TableData = {
 --// Core
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local server = Vargs.Server;
 	local service = Vargs.Service;
@@ -199,7 +198,7 @@ return function(Vargs, GetEnv)
 			LastLevelUpdate = true;
 			Groups = true;
 		};
-		
+
 		UpdatePlayerConnection = function(p)
 			for i, cli in next,service.NetworkServer:GetChildren() do
 				if cli:GetPlayer() == p then
@@ -712,7 +711,7 @@ return function(Vargs, GetEnv)
 					for _, blacklistedData in ipairs({"Groups", "LastChat", "AdminRank", "AdminLevel", "LastLevelUpdate", "LastDataSave"}) do
 						data[blacklistedData] = nil
 					end
-					
+
 					--// We want to only save data if actual user data is different
 					local CompareOptions = {
 						IgnoreKeys = {"Groups", "AdminLevel", "AdminRank", "LastLevelUpdate", "LastDataSave"}
@@ -788,7 +787,7 @@ return function(Vargs, GetEnv)
             if Core.DS_RESET_SALTS[key] then
                 key = Core.DS_RESET_SALTS[key] .. key
             end
-            
+
             -- Only consider salting if the key isn't a number (like a player ID) and if the setting isn't true
             local IsPlayer = tonumber(key) ~= nil
             local SettingIsTrue = server.Settings.DontSaltDataStoreKey == true
@@ -1549,8 +1548,8 @@ return function(Vargs, GetEnv)
 							end
 							return RealEnvResult, false
 						end
-					end	
-					
+					end
+
 					local AdonisDebugAPIBindable = service.New("BindableFunction")
 					AdonisDebugAPIBindable.Name = "Adonis_Debug_API"
 					AdonisDebugAPIBindable.Parent = service.ReplicatedStorage

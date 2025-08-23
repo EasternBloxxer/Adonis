@@ -6,8 +6,6 @@ return function(Vargs, env)
 	local Functions, Commands, Admin, Anti, Core, HTTP, Logs, Remote, Process, Variables, Deps =
 		server.Functions, server.Commands, server.Admin, server.Anti, server.Core, server.HTTP, server.Logs, server.Remote, server.Process, server.Variables, server.Deps
 
-	if env then setfenv(1, env) end
-
 	local Routine = env.Routine
 	local Pcall = env.Pcall
 
@@ -92,7 +90,7 @@ return function(Vargs, env)
 						plr.Character.Humanoid.Jump = true
 					end
 					Variables.ReturnPoints[plr] = plr.Character.HumanoidRootPart.CFrame
-					
+
 					task.wait()
 					plr.Character:PivotTo(plr.Character:GetPivot() * CFrame.new(0, 0, -5))
 				end
@@ -1494,7 +1492,7 @@ return function(Vargs, env)
 						plr.ReplicationFocus = rootPart
 						Remote.Send(plr, "Function", "SetView", humanoid)
 					end
-					
+
 					local hum = v.Character and v.Character:FindFirstChildOfClass("Humanoid")
 					if not hum then
 						Functions.Hint(`{service.FormatPlayer(v)} doesn't have a character humanoid`, {plr})
@@ -1505,19 +1503,19 @@ return function(Vargs, env)
 						Functions.Hint(`{service.FormatPlayer(v)} doesn't have a HumanoidRootPart`, {plr})
 						continue
 					end
-					
+
 					viewPlayer(plr, rootPart, hum)
-					
+
 					if v.UserId ~= plr.UserId then
 						local persist = args[2]
 						local event
 
-						event = v.CharacterAdded:Connect(function(char)	
+						event = v.CharacterAdded:Connect(function(char)
 							task.wait(0.5)
-							
+
 							local newhum = char:FindFirstChildOfClass("Humanoid")
 							local newRootPart = char.PrimaryPart
-							
+
 							if Variables.PersistView[plr.UserId] and Variables.PersistView[plr.UserId].Viewing then
 								if Variables.PersistView[plr.UserId].Viewing.UserId == v.UserId then
 									viewPlayer(plr, newRootPart, newhum)
@@ -1529,7 +1527,7 @@ return function(Vargs, env)
 								Variables.PersistView[plr.UserId] = nil
 								Remote.Send(plr, "Function", "SetView", "reset")
 								event:Disconnect()
-								
+
 								return;
 							else
 								if persist and persist:lower() == "false" then
@@ -4684,12 +4682,12 @@ return function(Vargs, env)
 								FlightPos.Position = root.Position
 								FlightGyro.CFrame = root.CFrame
 							end
-							
+
 							Variables.ReturnPoints[v] = root.CFrame
-							
+
 							task.wait()
 
-							if root then		
+							if root then
 								root.CFrame = CFrame.new(point)
 								if FlightPos and FlightGyro then
 									FlightPos.Position = root.Position
@@ -4733,9 +4731,9 @@ return function(Vargs, env)
 							FlightPos.Position = root.Position
 							FlightGyro.CFrame = root.CFrame
 						end
-						
+
 						Variables.ReturnPoints[v] = root.CFrame
-						
+
 						task.wait()
 
 						root.CFrame = CFrame.new(Vector3.new(tonumber(x), tonumber(y), tonumber(z)))
@@ -4778,9 +4776,9 @@ return function(Vargs, env)
 								FlightPos.Position = root.Position
 								FlightGyro.CFrame = root.CFrame
 							end
-							
+
 							Variables.ReturnPoints[v] = root.CFrame
-							
+
 							task.wait()
 
 							root.CFrame = (target.Character.HumanoidRootPart.CFrame*CFrame.Angles(0, math.rad(90/#players*1), 0)*CFrame.new(5+.2*#players, 0, 0))*CFrame.Angles(0, math.rad(90), 0)
@@ -4825,9 +4823,9 @@ return function(Vargs, env)
 										FlightPos.Position = root.Position
 										FlightGyro.CFrame = root.CFrame
 									end
-									
+
 									Variables.ReturnPoints[v] = root.CFrame
-									
+
 									task.wait()
 
 									if root and targ_root then
@@ -4880,7 +4878,7 @@ return function(Vargs, env)
 				Commands.Teleport.Function(plr, {`@{plr.Name}`, if args[1] then args[1] else "me"})
 			end
 		};
-		
+
 		Return = {
 			Prefix = Settings.Prefix;
 			Commands = {"back", "return"};
@@ -4939,7 +4937,7 @@ return function(Vargs, env)
 
 						local rootPart = char:FindFirstChild("HumanoidRootPart")
 						Variables.ReturnPoints[players[i]] = rootPart.CFrame
-						
+
 						if rootPart then
 							rootPart.CFrame = (
 								plrRootPart.CFrame
@@ -4975,7 +4973,7 @@ return function(Vargs, env)
 
 						local rootPart = char:FindFirstChild("HumanoidRootPart")
 						Variables.ReturnPoints[players[i]] = rootPart.CFrame
-						
+
 						if rootPart then
 							rootPart.CFrame = (
 								plrRootPart.CFrame

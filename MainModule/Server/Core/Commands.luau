@@ -1,15 +1,7 @@
-server = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-logError = nil
-
 --// Commands
 --// Highly recommended you disable Intellesense before editing this...
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local server = Vargs.Server
 	local service = Vargs.Service
@@ -54,12 +46,12 @@ return function(Vargs, GetEnv)
 
 		function RegisterCommandDefinition(ind, cmd)
 			if type(ind) ~= "string" then
-				logError("Non-string command index:", typeof(ind), ind)
+				env.logError("Non-string command index:", typeof(ind), ind)
 				Commands[ind] = nil
 				return
 			end
 			if type(cmd) ~= "table" then
-				logError("Non-table command definition:", ind)
+				env.logError("Non-table command definition:", ind)
 				Commands[ind] = nil
 				return
 			end
@@ -139,7 +131,7 @@ return function(Vargs, GetEnv)
 
 			local isValid, fault = ValidateCommandDefinition(cmd)
 			if not isValid then
-				logError(`Invalid command definition table {ind}:`, fault)
+				env.logError(`Invalid command definition table {ind}:`, fault)
 				Commands[ind] = nil
 			end
 
@@ -209,7 +201,6 @@ return function(Vargs, GetEnv)
 		})
 		for ind, cmd in Settings.Commands or {} do
 			if type(cmd) == "table" and cmd.Function then
-				setfenv(cmd.Function, commandEnv)
 				Commands[ind] = cmd
 			end
 		end

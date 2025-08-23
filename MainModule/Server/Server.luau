@@ -40,7 +40,7 @@ local CORE_LOADING_ORDER = table.freeze {
 --//	Your mom
 
 --// Holiday roooaaAaaoooAaaooOod
-local _G, game, script, getfenv, setfenv, workspace,
+local _G, game, script, workspace,
 getmetatable, setmetatable, loadstring, coroutine,
 rawequal, typeof, print, math, warn, error,  pcall,
 xpcall, select, rawset, rawget, ipairs, pairs,
@@ -50,7 +50,7 @@ NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
 NumberSequenceKeypoint, PhysicalProperties, Region3int16,
 Vector3int16, require, table, type, wait,
 Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, spawn, delay, task, assert =
-	_G, game, script, getfenv, setfenv, workspace,
+	_G, game, script, workspace,
 getmetatable, setmetatable, loadstring, coroutine,
 rawequal, typeof, print, math, warn, error,  pcall,
 xpcall, select, rawset, rawget, ipairs, pairs,
@@ -87,7 +87,7 @@ local SERVICES_WE_USE = table.freeze {
 }
 
 local unique = {}
-local origEnv = getfenv(); setfenv(1,setmetatable({}, {__metatable = unique}))
+local origEnv = {}
 local locals = {}
 local server = {}
 local service = {}
@@ -187,7 +187,7 @@ local function LoadModule(module, yield, envVars, noEnv, isCore)
 		if isCore then
 			local ran, err = service.TrackTask(
 				`CoreModule: {module}`,
-				((noEnv or isRaw or isValue) and plug) or setfenv(plug, GetEnv(getfenv(plug), envVars)),
+				plug,
 				function(err)
 					warn(`Module encountered an error while loading: {module}\n{err}\n{debug.traceback()}`)
 				end,
@@ -198,7 +198,7 @@ local function LoadModule(module, yield, envVars, noEnv, isCore)
 		else
 			local ran, err = service.TrackTask(
 				`Plugin: {module}`,
-				((noEnv or isRaw or isValue) and plug) or setfenv(plug, GetEnv(getfenv(plug), envVars)),
+				plug,
 				function(err)
 					warn(`Module encountered an error while loading: {module}\n{err}\n{debug.traceback()}`)
 				end,
@@ -386,8 +386,6 @@ for ind, loc in pairs({
 	game = game;
 	spawn = spawn;
 	script = script;
-	getfenv = getfenv;
-	setfenv = setfenv;
 	workspace = workspace;
 	getmetatable = getmetatable;
 	setmetatable = setmetatable;
@@ -523,7 +521,6 @@ return service.NewProxy({
 			AdonisDebugEnabled.Parent = Folder.Parent.Client
 		end
 
-		setfenv(1, setmetatable({}, {__metatable = unique}))
 
 		--// Server Variables
 		local setTab = require(server.Deps.DefaultSettings)

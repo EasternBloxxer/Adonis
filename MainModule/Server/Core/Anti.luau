@@ -1,14 +1,6 @@
-server = nil
-service = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
 --// Anti-Exploit
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local server = Vargs.Server;
 	local service = Vargs.Service;
@@ -49,12 +41,12 @@ return function(Vargs, GetEnv)
 
 		RemovePlayer = function(p, info)
 			info = tostring(info) or "No Reason Given"
-			
+
 			if service.RunService:IsStudio() then
 				warn(`:: Adonis Anti Cheat :: Anticheat triggered for {p.Name}, not kicking because in studio; {info}`)
 				return;
 			end
-			
+
 			pcall(function()
 				service.UnWrap(p):Kick(`:: Adonis Anti Cheat :: {info}`)
 			end)
@@ -69,7 +61,7 @@ return function(Vargs, GetEnv)
 				Desc = info;
 			})
 		end;
-    
+
 		CheckAllClients = function()
 			--// Check if clients are alive
 			if Settings.CheckClients and server.Running then

@@ -1,14 +1,6 @@
-server = nil
-service = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
 --// Remote
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
 
 	local server = Vargs.Server;
 	local service = Vargs.Service;

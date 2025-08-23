@@ -6,8 +6,6 @@ return function(Vargs, env)
 	local Functions, Commands, Admin, Anti, Core, HTTP, Logs, Remote, Process, Variables, Deps =
 		server.Functions, server.Commands, server.Admin, server.Anti, server.Core, server.HTTP, server.Logs, server.Remote, server.Process, server.Variables, server.Deps
 
-	if env then setfenv(1, env) end
-
 	local Routine = env.Routine
 	local Pcall = env.Pcall
 
@@ -1108,7 +1106,7 @@ return function(Vargs, env)
 				local config = sword:FindFirstChild("Configurations")
 				if config then
 					config.CanTeamkill.Value = if args[2] and args[2]:lower() == "false" then false else true
-					
+
 					config.BaseDamage.Value = if args[3] then assert(tonumber(args[3]), "Base Damage is not a number!") else 5
 					config.SlashDamage.Value = if args[4] then assert(tonumber(args[4]), "Slash Damage is not a number!") else 10
 					config.LungeDamage.Value = if args[5] then assert(tonumber(args[5]), "Lunge Damage is not a number!") else 30

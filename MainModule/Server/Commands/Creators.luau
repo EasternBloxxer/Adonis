@@ -6,7 +6,6 @@ return function(Vargs, env)
 	local Functions, Commands, Admin, Anti, Core, HTTP, Logs, Remote, Process, Variables, Deps =
 		server.Functions, server.Commands, server.Admin, server.Anti, server.Core, server.HTTP, server.Logs, server.Remote, server.Process, server.Variables, server.Deps
 
-	if env then setfenv(1, env) end
 
 	return {
 		DirectBan = {
@@ -249,7 +248,7 @@ return function(Vargs, env)
 			Commands = {"scripteditor", "se"};
 			Args = {"new/edit/delete/run","name"};
 			Description = "Opens Script editor";
-			CrossServerDenied = true;																
+			CrossServerDenied = true;
 			AdminLevel = "Creators";
 			Function = function(plr: Player, args: {string})
 				assert(Settings.CodeExecution, "CodeExecution must be enabled for this command to work")
@@ -260,12 +259,12 @@ return function(Vargs, env)
 					se = {}
 					Variables.ScriptEditor[tostring(plr.UserId)] = se
 				end
-				
+
 				if Operation:lower() == "new" then
 					se[Name] = {
 						Script = false;
 					}
-					
+
 					Commands.ScriptEditor.Function(plr,{"edit",Name})
 				elseif Operation:lower() == "edit" then
 					Remote.MakeGui(plr, "ScriptEditor",{
@@ -274,11 +273,11 @@ return function(Vargs, env)
 					})
 				elseif Operation:lower() == "delete" then
 					assert(se[Name], "No script found")
-					
+
 					se[Name] = nil
 				elseif Operation:lower() == "run" then
 					assert(se[Name], "No script found")
-					
+
 					local oError = error
 					local newenv = setfenv(getfenv(),{
 						print = function(...) local args, str = table.pack(...), "" for i = 1, args.n do str ..= `{(i > 1 and " " or "")}{args[i]}` end Remote.MakeGui(plr, "Output",{Title = "WARN"; Message = `{str}`}) end;
