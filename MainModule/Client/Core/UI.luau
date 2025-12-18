@@ -1,45 +1,11 @@
-client = nil
-service = nil
-Pcall = nil
-Routine = nil
-GetEnv = nil
-origEnv = nil
-logError = nil
-
---// Processing
+--// UI
 return function(Vargs, GetEnv)
 	local env = GetEnv(nil, {script = script})
-	setfenv(1, env)
-
-	local _G, game, script, getfenv, setfenv, workspace,
-	getmetatable, setmetatable, loadstring, coroutine,
-	rawequal, typeof, print, math, warn, error,  pcall,
-	xpcall, select, rawset, rawget, ipairs, pairs,
-	next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-	newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-	NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-	NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-	Vector3int16, require, table, type, wait,
-	Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay =
-		_G, game, script, getfenv, setfenv, workspace,
-	getmetatable, setmetatable, loadstring, coroutine,
-	rawequal, typeof, print, math, warn, error,  pcall,
-	xpcall, select, rawset, rawget, ipairs, pairs,
-	next, Rect, Axes, os, time, Faces, unpack, string, Color3,
-	newproxy, tostring, tonumber, Instance, TweenInfo, BrickColor,
-	NumberRange, ColorSequence, NumberSequence, ColorSequenceKeypoint,
-	NumberSequenceKeypoint, PhysicalProperties, Region3int16,
-	Vector3int16, require, table, type, wait,
-	Enum, UDim, UDim2, Vector2, Vector3, Region3, CFrame, Ray, delay
-
-	local UIFolder = client.UIFolder
-
-	local script = script
 
 	local service = Vargs.Service
 	local client = Vargs.Client
-
-	local GetEnv = env.GetEnv
+	local UIFolder = client.UIFolder
+	local script = script
 
 	local Anti, Core, Functions, Process, Remote, UI, Variables, Deps
 	local TrackTask
@@ -68,11 +34,7 @@ return function(Vargs, GetEnv)
 		local s1Truncated = string.sub(s1, 1, minLength)
 		local s2Truncated = string.sub(s2, 1, minLength)
 		return s1Truncated == s2Truncated
-	end 
-
-	getfenv().client = nil
-	getfenv().service = nil
-	getfenv().script = nil
+	end
 
 	client.UI = {
 		Init = Init;
@@ -119,7 +81,7 @@ return function(Vargs, GetEnv)
 			end
 		end;
 
-		LoadModule = function(module, data, env)
+		LoadModule = function(module, data, _env)
 			data = data or {}
 			local function safeTableClone(t) -- TODO: Make RFC on Luau repo to allow table.clone to work with closed metatables
 				local success, result = pcall(table.clone, t)
@@ -136,8 +98,11 @@ return function(Vargs, GetEnv)
 					return newT
 				end
 			end
-			local ran, func = pcall(require, module)
-			local newEnv = GetEnv(env, {
+
+			-- local ran, func = env.pcall(env.require, module)
+			local ran = true
+			local func = env.require(module)
+			local newEnv = GetEnv(_env, {
 				script = module,
 				client = safeTableClone(client),
 				service = safeTableClone(service)
@@ -160,14 +125,19 @@ return function(Vargs, GetEnv)
 				--[[if (data.isModifier and not data.modNoEnv) or (not data.isModifier and data.isCode and not data.NoEnv) then
 					setfenv(func, env)
 				end]]
+				local rets = {}
 
-				local rets = {
+				if (not data.modNoEnv) or (not data.NoEnv) then -- TODO: Redo noenv checks
+					setfenv(func, newEnv)
+				end
+
+				rets = {
 					TrackTask(`UI: {module:GetFullName()}`,
-						--func,
-						setfenv(func, newEnv),
+						func,
 						false,
 						data,
-						newEnv
+						newEnv,
+						GetEnv
 					)
 				}
 
@@ -186,7 +156,7 @@ return function(Vargs, GetEnv)
 			local foundConfigs = {}
 			local endConfig = {}
 
-			local confFolder = Instance.new("Folder")
+			local confFolder = service.New("Folder")
 			local debounce = false
 
 			local function func(theme, name, depth)
@@ -266,7 +236,7 @@ return function(Vargs, GetEnv)
 
 				-- Keep a reference to the original element in case the script relies on a dependancy
 				-- found in the UI theme's directory
-				local originalReferenceValue = Instance.new("ObjectValue")
+				local originalReferenceValue = service.New("ObjectValue")
 				originalReferenceValue.Value = found
 				originalReferenceValue.Name = "OriginalReference"
 				originalReferenceValue.Parent = new
@@ -331,7 +301,7 @@ return function(Vargs, GetEnv)
 								gTable = gTable
 							})
 
-							local ran, func = pcall(require, folder)
+							local ran, func = pcall(env.require, folder)
 							local rets = {
 								if folderNoEnv then pcall(func, newGui, gTable, data, newEnv) else pcall(setfenv(func, newEnv), newGui, gTable, data, newEnv)
 							}
