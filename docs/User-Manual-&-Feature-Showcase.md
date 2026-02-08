@@ -1,10 +1,10 @@
 # Contents
 
-1. [Command Usage Guide](https://github.com/Sceleratis/Adonis/wiki/User-Manual-&-Feature-Showcase#section-1-command-usage-guide)
-2. [The "UserPanel" GUI](https://github.com/Sceleratis/Adonis/wiki/User-Manual-&-Feature-Showcase#section-2-the-userpanel-gui)
-3. [UI Themes Showcase](https://github.com/Sceleratis/Adonis/wiki/User-Manual-&-Feature-Showcase#section-3-ui-themes-showcase)
-4. [Moderation Commands Reference](https://github.com/Sceleratis/Adonis/wiki/User-Manual-&-Feature-Showcase#section-4-moderation-commands-reference)
-5. [Adonis Features Showcase](https://github.com/Sceleratis/Adonis/wiki/User-Manual-&-Feature-Showcase#section-4-adonis-features-showcase)
+1. [Command Usage Guide](#section-1-command-usage-guide)
+2. [The "UserPanel" GUI](https://github.com/epix-incorporated/Adonis/wiki/User-Manual-&-Feature-Showcase#section-2-the-userpanel-gui)
+3. [UI Themes Showcase](https://github.com/epix-incorporated/Adonis/wiki/User-Manual-&-Feature-Showcase#section-3-ui-themes-showcase)
+4. [Moderation Commands Reference](https://github.com/epix-incorporated/Adonis/wiki/User-Manual-&-Feature-Showcase#section-4-moderation-commands-reference)
+5. [Adonis Features Showcase](https://github.com/epix-incorporated/Adonis/wiki/User-Manual-&-Feature-Showcase#section-4-adonis-features-showcase)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ## ℹ️ **Notice**
 
-**This manual is intended for regular users, moderators and admins in ROBLOX games using the Adonis admin system. For guidance on installing Adonis in your game as a developer, please refer to the [README](https://github.com/Sceleratis/Adonis/blob/master/README.md) file in the repository. For API documentation, navigate to the [other pages](https://github.com/Sceleratis/Adonis/wiki) on this wiki.**
+**This manual is intended for regular users, moderators and admins in Roblox games using the Adonis admin system. For guidance on installing Adonis in your game as a developer, please refer to the [README](https://github.com/epix-incorporated/Adonis/blob/master/README.md) file in the repository. For API documentation, navigate to the [other pages](https://github.com/epix-incorporated/Adonis/wiki) on this wiki.**
 
 </div>
 

@@ -14,6 +14,6 @@ Documentation for the Adonis _G API can be found [here](https://github.com/Epix-
 View the contribution guidelines and instructions [here](https://github.com/Epix-Incorporated/Adonis/blob/master/CONTRIBUTING.md) if you'd like to contribute to the Adonis project.
 
 ## 🔗 Links
-- Adonis Loader: https://www.roblox.com/library/7510622625/Adonis-Loader
-- Adonis MainModule: https://www.roblox.com/library/7510592873/Adonis-MainModule
-- Nightly MainModule: https://www.roblox.com/library/8612978896/Nightlies-Adonis-MainModule
+- Adonis Loader: <https://www.roblox.com/library/7510622625/Adonis-Loader>
+- Adonis MainModule: <https://www.roblox.com/library/7510592873/Adonis-MainModule>
+- Nightly MainModule: <https://www.roblox.com/library/8612978896/Nightlies-Adonis-MainModule>
